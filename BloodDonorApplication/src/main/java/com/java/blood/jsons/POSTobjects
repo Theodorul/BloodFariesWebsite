@@ -1,0 +1,16 @@
+
+@add donator/
+@add doctor
+{
+	"user_id" : 3,
+	"name" : "doctor12",
+	"email" : "cc",
+	"location" : "cc",
+	"age" : 22,
+	"weight_in_kg" : 90,
+	"pulse" : 100,
+	"tension" : 1000,
+	"diseases" : 0,
+	"gender" : "male",
+	"under_treatment" : 3
+}
