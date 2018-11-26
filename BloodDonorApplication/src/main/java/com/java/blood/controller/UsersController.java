@@ -28,7 +28,7 @@ public class UsersController {
         usersService.addDoctor(doctorBean);
     }
     @RequestMapping(value = "/delete/user/{name}", method = RequestMethod.DELETE)
-    public void addDoctor(@PathVariable("name") String name){
+    public void deleteDoctor(@PathVariable("name") String name){
         usersService.deleteUser(name);
     }
 }
