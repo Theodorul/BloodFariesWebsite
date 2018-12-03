@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-   
-    <title>Blood Donors Website | Welcome</title>
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <div id="branding">
-          <nav>
-            <ul>
-              <li>
-                <img src="img/logo.png">
-              </li>
-              <li>
-                <h2>Blood Donors Application</h2>
-              </li>             
-            </ul>
-          </nav>
-        </div>
-        <nav>
-          <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="login.html">Login</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+	<title>Blood Faries</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <section id="showcase">
-      <div class="container">
-        <img src="img/showcase.jpeg">       
-      </div>
-    </section>
+	<link rel="stylesheet" type="text/css" href="src/css/all.css">
+	<link rel="stylesheet" type="text/css" href="src/css/first_page.css">
+</head>
+<body>
+	<header>
 
-   
-
-   
-
-    <footer>
-      <p>Blood Faries, Copyright &copy; 2018</p>
-    </footer>
-  </body>
+		<div class="bar1 flex">
+			<div id="logo">
+				<a href="#"><img src="src/img/logo.png" width="300" height="100"></a>
+			</div>
+			<a href="src/pages/login.html">
+				<div class="login">
+					Login
+				</div>
+			</a>
+		</div>
+		<div class="bar2 flex">
+			<h3 class="menu-cell">
+				Why give blood?
+			</h3>
+			<h3 class="menu-cell">
+				Who can give blood?
+			</h3>
+			<h3 class="menu-cell">
+				Donation process
+			</h3>
+		</div>
+	</header>
+	<main class="flex">
+		<a href="src/pages/main_doner.html">
+			<div id="doner_icon" class="icon flex button">
+				<div class=" icon_sign glyphicon glyphicon-tint"></div>
+				<div class="icon_text">Donor</div>
+			</div>
+		</a>
+		<a href="#">
+			<div id="doctor_icon" class="icon flex button">
+				<div class="icon_sign fa fa-user-md"></div>
+				<div class="icon_text">Doctor</div>
+			</div>
+		</a>
+		<a href="#">
+			<div id="staff_icon" class="icon flex button">
+				<div class="icon_sign glyphicon glyphicon-plus-sign"></div>
+				<div class="icon_text">Transfusion Center Staff</div>
+			</div>
+		</a>
+		<a href="#">
+			<div id="admin_icon" class="icon flex button">
+				<div class="icon_sign glyphicon glyphicon-briefcase"></div>
+				<div class="icon_text">Admin</div>
+			</div>
+		</a>
+	</main>
+	<footer>
+		
+	</footer>
+</body>
 </html>
