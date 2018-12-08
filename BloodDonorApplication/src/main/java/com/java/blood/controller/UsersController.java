@@ -23,12 +23,12 @@ public class UsersController {
     private UsersService usersService;
 
     @RequestMapping(value = "/add/donor", method = RequestMethod.PUT)
-    public void addDonor(@RequestBody UsersEntity usersEntity){
+    public void addDonor(@RequestBody UsersEntity usersEntity) throws NoSuchAlgorithmException {
         usersService.addDonor(usersEntity);
     }
 
     @RequestMapping(value = "/add/doctor", method = RequestMethod.PUT)
-    public void addDoctor(@RequestBody DoctorBean doctorBean){
+    public void addDoctor(@RequestBody DoctorBean doctorBean) throws NoSuchAlgorithmException {
         usersService.addDoctor(doctorBean);
     }
 
@@ -41,20 +41,8 @@ public class UsersController {
     public List<String> getRoleForUser(@PathVariable("email") String name){
         return usersRepository.getRoleForUser(name);
     }
-
-    @RequestMapping(value = "/pass", method = RequestMethod.GET)
-    public String abcd() throws NoSuchAlgorithmException {
-        String plaintext = "your text here";
-        MessageDigest m = MessageDigest.getInstance("MD5");
-        m.reset();
-        m.update(plaintext.getBytes());
-        byte[] digest = m.digest();
-        BigInteger bigInt = new BigInteger(1,digest);
-        String hashtext = bigInt.toString(16);
-        return hashtext;
-    }
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String getLoginResponse(@RequestBody LoginBean loginBean){
+    public String getLoginResponse(@RequestBody LoginBean loginBean) throws NoSuchAlgorithmException {
         return usersService.login(loginBean);
     }
 }
