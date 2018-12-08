@@ -19,6 +19,7 @@ public class UsersEntity {
     private Integer underTreatment;
     private Integer roleId;
     private String roleName;
+    private String pass;
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -29,6 +30,19 @@ public class UsersEntity {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    @Basic
+    @Column(name = "password", nullable = false, length = 50)
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+
 
     @Basic
     @Column(name = "name", nullable = true, length = 30)

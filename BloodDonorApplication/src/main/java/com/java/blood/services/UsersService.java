@@ -1,6 +1,7 @@
 package com.java.blood.services;
 
 import com.java.blood.beans.DoctorBean;
+import com.java.blood.beans.LoginBean;
 import com.java.blood.model.UsersEntity;
 
 public interface UsersService {
@@ -9,5 +10,7 @@ public interface UsersService {
 
     void addDoctor(DoctorBean doctorBean);
 
-    void deleteUser(String name);
+    void deleteUser(String email);
+
+    String login(LoginBean loginBean);
 }

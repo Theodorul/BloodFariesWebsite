@@ -1,4 +1,4 @@
-package com.java.blood;
+package com.example;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -17,6 +17,9 @@ public class UsersEntity {
     private Integer diseases;
     private String gender;
     private Integer underTreatment;
+    private Integer roleId;
+    private String roleName;
+    private String pass;
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -27,6 +30,19 @@ public class UsersEntity {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    @Basic
+    @Column(name = "password", nullable = false, length = 50)
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+
 
     @Basic
     @Column(name = "name", nullable = true, length = 30)
@@ -128,6 +144,26 @@ public class UsersEntity {
         this.underTreatment = underTreatment;
     }
 
+    @Basic
+    @Column(name = "role_id", nullable = true)
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    @Basic
+    @Column(name = "role_name", nullable = true, length = 10)
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,11 +179,13 @@ public class UsersEntity {
                 Objects.equals(tension, that.tension) &&
                 Objects.equals(diseases, that.diseases) &&
                 Objects.equals(gender, that.gender) &&
-                Objects.equals(underTreatment, that.underTreatment);
+                Objects.equals(underTreatment, that.underTreatment) &&
+                Objects.equals(roleId, that.roleId) &&
+                Objects.equals(roleName, that.roleName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, name, email, location, age, weightInKg, pulse, tension, diseases, gender, underTreatment);
+        return Objects.hash(userId, name, email, location, age, weightInKg, pulse, tension, diseases, gender, underTreatment, roleId, roleName);
     }
 }

@@ -17,6 +17,7 @@ public class UsersEntity {
     private Integer diseases;
     private String gender;
     private Integer underTreatment;
+    private String pass;
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -26,6 +27,16 @@ public class UsersEntity {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "password" , length = 50)
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     @Basic
