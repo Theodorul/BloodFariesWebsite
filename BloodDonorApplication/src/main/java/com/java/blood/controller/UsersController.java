@@ -31,4 +31,10 @@ public class UsersController {
     public void deleteDoctor(@PathVariable("name") String name){
         usersService.deleteUser(name);
     }
+
+    @RequestMapping(value = "/getRoleForUser/{name}", method = RequestMethod.GET)
+    public List<String> getRoleForUser(@PathVariable("name") String name){
+        return usersRepository.getRoleForUser(name);
+    }
+
 }

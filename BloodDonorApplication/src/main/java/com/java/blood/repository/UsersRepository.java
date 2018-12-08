@@ -32,6 +32,11 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     void addRoleOnDonator(@Param("user_id") Integer user_id,
                           @Param("role_id") Integer role_id);
 
+    @Query(value = "select b.role_name from users a\n" +
+            "inner join role_mapping c on a.user_id = c.user_id\n" +
+            "inner join role b on b.role_id = c.role_id where a.name = ?1" , nativeQuery = true)
+    List<String> getRoleForUser(@Param("name") String name);
+
     @Query("select u.userId from UsersEntity u where u.name = ?1")
     Integer getIdFromName(@Param("name") String name);
 
