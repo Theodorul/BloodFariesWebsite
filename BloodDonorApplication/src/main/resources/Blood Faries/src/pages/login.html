@@ -67,10 +67,13 @@
         data['email'] = ($(inputs[0]).val());
         data['pass'] = ($(inputs[1]).val());
         data['role'] = 0;
+
+        console.log(data);
       
         $.ajax({
-          url: '',
-          type: 'post', 
+          url: 'localhost:8080/login',
+          type: 'post',
+          contentType: "application/json", 
           data: data,
           dataType: 'json',
           timeout: 5000})
@@ -79,6 +82,7 @@
           console.log(result);      
         
     })
+
       event.preventDefault();  
     });
   

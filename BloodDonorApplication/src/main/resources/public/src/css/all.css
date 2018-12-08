@@ -1,0 +1,54 @@
+body {
+	font-family: 'Cherry Swash';font-size: 22px;
+}
+
+a, a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.button {
+	box-shadow: 5px 5px #777777;
+}
+
+.button:hover {
+	background-color: 
+}
+
+.button:active {
+	box-shadow: 3px 3px #666666;
+	transform: translateY(2px);
+	transform: translateX(2px);
+}
+
+.bar1 {
+	justify-content: space-between;
+	
+}
+
+.login {
+	color:  #f02323;
+	padding-right: 50px;
+	font-size: 35px;
+}
+
+.login:hover {
+	text-shadow: -1px -1px #ff0000;
+}
+
+.bar2 {
+	height: 50px;
+	background-color: #f02323;
+	color: white;
+	justify-content: space-around;
+}
+
+.carousel-item {
+	height: 500px;
+
+}
