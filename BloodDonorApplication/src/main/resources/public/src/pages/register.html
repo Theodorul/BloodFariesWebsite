@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" type="text/css" href="../../src/css/all.css">
   <link rel="stylesheet" type="text/css" href="../../src/css/first_page.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -38,37 +39,79 @@
     </div>
   </header>
   <main class="flex">
-    <form id="Login">
+    <form id="Register">
       <div class="form-group">
-              <input type="text" class="form-control" id="inputName" placeholder="Name">
-          </div>
-          <div class="form-group">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
-          </div>
-          <div class="form-group">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control" id="inputLocation" placeholder="Location">
-          </div>
-          <div class="form-group">
-              <input type="number" class="form-control" id="inputAge" placeholder="Age">
-          </div>
-          <div class="form-group">
-              <input type="number" class="form-control" id="inputWeight" placeholder="Weight(kg)">
-          </div>
-          <div class="form-group">
-            <input type="radio" name="gender" value="male">Male<br>
-            <input type="radio" name="gender" value="female">Female<br>                           
-          </div>
+          <input type="text" class="form-control" id="inputName" placeholder="Name">
+      </div>
+      <div class="form-group">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+      </div>
+      <div class="form-group">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control" id="inputLocation" placeholder="Location">
+      </div>
+      <div class="form-group">
+          <input type="number" class="form-control" id="inputAge" placeholder="Age">
+      </div>
+      <div class="form-group">
+          <input type="number" class="form-control" id="inputWeight" placeholder="Weight(kg)">
+      </div>
+      <div class="form-group">
+        <input type="radio" name="gender" value="male">Male<br>
+        <input type="radio" name="gender" value="female">Female<br>                           
+      </div>          
 
-          
-
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-      </form>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
   </main>
   <footer>
     
   </footer>
 </body>
+
+<script>
+    
+      $('#Register').on('submit', function(event){
+        var inputs = $('#Register :input'); 
+
+        var data = {};
+        data['name'] = ($(inputs[0]).val());
+        data['email'] = ($(inputs[1]).val());
+        data['location'] = ($(inputs[3]).val());
+        data['age'] = ($(inputs[4]).val());
+        data['weightInKg'] = ($(inputs[5]).val());
+
+        data['pulse'] = 0;
+        data['tension'] = 0;
+        data['diseases'] = 0;
+        data['gender'] = $('input[name=gender]:checked').val();
+        data['under_treatment'] = 0;
+        data['pass'] = ($(inputs[2]).val());
+        
+        console.log(JSON.stringify(data));
+        
+        $.ajax({
+          url: '/add/donor',
+          contentType: "application/json",
+          type: 'put',
+          data: JSON.stringify(data),
+          dataType: 'json',
+          timeout: 5000})
+        .done(function(result){
+          console.log("afafad");
+          alert("merge");
+      })
+        .fail(function(result){
+          console.log(result.responseText);          
+        });
+         event.preventDefault();
+    });
+
+
+  
+    
+
+  </script>
 </html>
