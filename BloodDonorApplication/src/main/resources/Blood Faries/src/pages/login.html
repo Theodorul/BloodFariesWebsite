@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" type="text/css" href="../../src/css/all.css">
   <link rel="stylesheet" type="text/css" href="../../src/css/first_page.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -55,5 +56,38 @@
   <footer>
     
   </footer>
+
+
+  <script>
+    
+      $('#Login').on('submit', function(event){
+        var inputs = $('#Login :input'); 
+
+        var data = {};
+        data['email'] = ($(inputs[0]).val());
+        data['pass'] = ($(inputs[1]).val());
+        data['role'] = 0;
+      
+        $.ajax({
+          url: '',
+          type: 'post', 
+          data: data,
+          dataType: 'json',
+          timeout: 5000})
+        .done(function(result) {
+        /* backend returns the data */        
+          console.log(result);      
+        
+    })
+      event.preventDefault();  
+    });
+  
+    
+
+  </script>
+
 </body>
+
+
+
 </html>
