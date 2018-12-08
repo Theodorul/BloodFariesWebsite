@@ -1,0 +1,52 @@
+main {
+	justify-content:space-around;
+	padding-top: 50px; 
+	background-image: url("../../src/img/back.jpg");
+	height: 80vh;
+	background-size: unset;
+}
+
+.icon {
+	border-radius: 20%;
+	height: 300px;
+	width: 300px;
+	box-shadow: 10px black;
+	font-weight: bold;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 30px;
+}
+
+#doner_icon {
+	border: 8px solid #f02323;
+	background-color: #efa370;
+	color: #f02323;
+
+}
+
+#doctor_icon {
+	border: 8px solid #f2ce1a;
+	background-color: #f5f783;
+	color: #f2ce1a;
+}
+
+#staff_icon {
+	border: 8px solid #117fb2;
+	background-color: #91c0d6;
+	color: #117fb2;
+}
+
+#admin_icon {
+	border: 8px solid #117fb2;
+	background-color: #91c0d6;
+	color: #117fb2;
+}
+
+.icon_sign {
+	font-size: 180px;
+}  
+
+.icon_text {
+	font-size: 28px;
+	text-align: center;
+}
