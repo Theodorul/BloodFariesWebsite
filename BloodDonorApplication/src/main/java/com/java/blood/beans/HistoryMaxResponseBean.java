@@ -8,6 +8,8 @@ public class HistoryMaxResponseBean {
 
     private String email;
 
+    private String blood_type;
+
     private String location;
 
     private Date donations_date;
@@ -15,6 +17,14 @@ public class HistoryMaxResponseBean {
     private String donation_results;
 
     private String comments;
+
+    public String getBlood_type() {
+        return blood_type;
+    }
+
+    public void setBlood_type(String blood_type) {
+        this.blood_type = blood_type;
+    }
 
     public String getName() {
         return name;

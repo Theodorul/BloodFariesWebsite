@@ -64,6 +64,7 @@ public class DonationsServiceImpl implements DonationsService {
             bean.setDonations_date((Date) obj[3]);
             bean.setDonation_results((String) obj[4]);
             bean.setComments((String) obj[5]);
+            bean.setBlood_type((String) obj[6]);
             result.add(bean);
         }
         return result;
