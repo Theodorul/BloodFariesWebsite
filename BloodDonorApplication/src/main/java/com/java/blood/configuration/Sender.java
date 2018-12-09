@@ -14,9 +14,9 @@ public class Sender {
     public void send() {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("mocanumadalin1880@gmail.com");
-        message.setTo("mocanumadalin1880@gmail.com");
+        message.setTo("stanciu.cossmin@gmail.com");
         message.setSubject("hello");
-        message.setText("Sugi pula");
+        message.setText("Sugi pula bafta");
         mailSender.send(message);
     }
 }

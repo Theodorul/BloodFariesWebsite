@@ -47,4 +47,10 @@ public interface DonationsRepository extends JpaRepository<DonationRequestsEntit
 
     @Query(value = "select request_id from donation_requests", nativeQuery = true)
     List<Integer> getAllRequestsAsInt();
+
+
+    @Query(value = "select a.name , a.email , a.location, b.donation_date, b.donation_result, b.comments\n" +
+            "from users a inner join donations_history b on a.user_id = b.user_id", nativeQuery = true)
+    List<Object[]> getFullHistory();
 }
+

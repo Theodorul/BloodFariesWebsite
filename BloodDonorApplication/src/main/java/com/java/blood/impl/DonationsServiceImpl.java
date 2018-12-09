@@ -1,9 +1,9 @@
 package com.java.blood.impl;
 
 import com.java.blood.beans.HistoryAdderBean;
+import com.java.blood.beans.HistoryMaxResponseBean;
 import com.java.blood.beans.HistoryResponseBean;
 import com.java.blood.model.DonationRequestsEntity;
-import com.java.blood.model.DonationsHistoryEntity;
 import com.java.blood.repository.DonationsRepository;
 import com.java.blood.repository.UsersRepository;
 import com.java.blood.services.DonationsService;
@@ -47,6 +47,23 @@ public class DonationsServiceImpl implements DonationsService {
             bean.setComments((String) obj[2]);
             bean.setDonation_date((Date) obj[0]);
             bean.setDonation_result((String) obj[1]);
+            result.add(bean);
+        }
+        return result;
+    }
+
+    @Override
+    public List<HistoryMaxResponseBean> getFullHistoryFromHistory() {
+        List<Object[]> data = donationsRepository.getFullHistory();
+        List<HistoryMaxResponseBean> result = new ArrayList<>();
+        for(Object[] obj : data){
+            HistoryMaxResponseBean bean = new HistoryMaxResponseBean();
+            bean.setName((String) obj[0]);
+            bean.setEmail((String) obj[1]);
+            bean.setLocation((String) obj[2]);
+            bean.setDonations_date((Date) obj[3]);
+            bean.setDonation_results((String) obj[4]);
+            bean.setComments((String) obj[5]);
             result.add(bean);
         }
         return result;

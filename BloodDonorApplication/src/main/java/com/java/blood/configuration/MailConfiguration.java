@@ -18,7 +18,7 @@ public class MailConfiguration {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
 
         javaMailSender.setHost("smtp.gmail.com");
-        javaMailSender.setPort(465);
+        javaMailSender.setPort(587);
 
         javaMailSender.setUsername("mocanumadalin1880@gmail.com");
         javaMailSender.setPassword("mocanuvalencia12");
@@ -32,7 +32,7 @@ public class MailConfiguration {
         Properties properties = new Properties();
         properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.auth", "false");
-        properties.setProperty("mail.smtp.starttls.enable", "false");
+        properties.setProperty("mail.smtp.starttls.enable", "true");
         properties.setProperty("mail.debug", "false");
         return properties;
     }
