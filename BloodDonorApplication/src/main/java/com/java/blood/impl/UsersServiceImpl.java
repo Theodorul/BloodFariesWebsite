@@ -50,11 +50,15 @@ public class UsersServiceImpl implements UsersService {
     public String login(LoginBean loginBean) throws NoSuchAlgorithmException {
         List<String> allEmails = usersRepository.getAllEmails();
         String pass = usersRepository.getPassForUser(loginBean.getEmail());
+        Integer role = usersRepository.getRoleForUserAsInt(loginBean.getEmail()).get(0);
         if(!allEmails.contains(loginBean.getEmail())){
             return "Not in database";
         }
         else{
-            if(hashPassword(loginBean.getPass()).equals(pass)){
+            if(role != loginBean.getRole()){
+                return "Wrong user";
+            }
+            else if(hashPassword(loginBean.getPass()).equals(pass)){
                 return "Succesfully logged in";
             }
             else{

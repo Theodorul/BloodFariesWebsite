@@ -38,6 +38,11 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
             "inner join role b on b.role_id = c.role_id where a.email = ?1" , nativeQuery = true)
     List<String> getRoleForUser(@Param("name") String name);
 
+    @Query(value = "select b.role_id from users a\n" +
+            "inner join role_mapping c on a.user_id = c.user_id\n" +
+            "inner join role b on b.role_id = c.role_id where a.email = ?1" , nativeQuery = true)
+    List<Integer> getRoleForUserAsInt(@Param("name") String name);
+
     @Query("select u.userId from UsersEntity u where u.email = ?1")
     Integer getIdFromName(@Param("name") String name);
 

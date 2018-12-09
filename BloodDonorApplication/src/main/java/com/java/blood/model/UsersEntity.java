@@ -19,6 +19,15 @@ public class UsersEntity {
     private Integer underTreatment;
     private String pass;
     private String blood_type;
+    private Integer role_id;
+
+    public Integer getRole_id() {
+        return role_id;
+    }
+
+    public void setRole_id(Integer role_id) {
+        this.role_id = role_id;
+    }
 
     @Id
     @Column(name = "user_id", nullable = false)
