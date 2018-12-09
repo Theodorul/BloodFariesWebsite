@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" type="text/css" href="../../src/css/all.css">
-  <link rel="stylesheet" type="text/css" href="../../src/css/first_page.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/all.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/first_page.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -18,24 +18,30 @@
 
     <div class="bar1 flex">
       <div id="logo">
-        <a href="#"><img src="../../src/img/logo.png" width="300" height="100"></a>
+        <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
-      <a href="src/pages/login.html">
-        <div class="login">
-          Login
-        </div>
-      </a>
+     
+      <div class="login">
+        Doctor Login
+      </div>
+      
     </div>
     <div class="bar2 flex">
-      <h3 class="menu-cell">
-        Why give blood?
-      </h3>
-      <h3 class="menu-cell">
-        Who can give blood?
-      </h3>
-      <h3 class="menu-cell">
-        Donation process
-      </h3>
+      <a href="http://localhost:8080/src/pages/why.html">
+        <h3 class="menu-cell">
+          Why give blood?
+        </h3>
+      </a>
+      <a href="http://localhost:8080/src/pages/who.html">       
+        <h3 class="menu-cell">
+          Who can give blood?
+        </h3>
+      </a>
+      <a href="#">        
+        <h3 class="menu-cell">
+          Donation process
+        </h3>
+      </a>
     </div>
   </header>
   <main class="flex">
@@ -47,7 +53,7 @@
               <input type="password" class="form-control" id="inputPassword" placeholder="Password">
           </div>
           <div class="signup">
-            <a href="register.html">Don't have an account?</a>
+            <a href="http://localhost:8080/src/pages/registerDonor.html">Don't have an account?</a>
           </div>
 
         <button type="submit" class="btn btn-primary">Login</button>

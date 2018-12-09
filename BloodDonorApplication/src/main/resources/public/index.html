@@ -9,57 +9,58 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="src/css/all.css">
-	<link rel="stylesheet" type="text/css" href="src/css/first_page.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/all.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/first_page.css">
 </head>
 <body>
 	<header>
 		<div class="bar1 flex">
 			<div id="logo">
-				<a href="#"><img src="src/img/logo.png" width="300" height="100"></a>
+				<a href="#"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
+			</div>			
+			<div class="login">
+				Home Page
 			</div>
-			<a href="src/pages/login.html">
-				<div class="login">
-					Login
-				</div>
-			</a>
+			
 		</div>
 		<div class="bar2 flex">
-			<a href="src/pages/why.html">
+			<a href="http://localhost:8080/src/pages/why.html">
 				<h3 class="menu-cell">
 					Why give blood?
 				</h3>
 			</a>
-			<a href="src/pages/who.html">
+			<a href="http://localhost:8080/src/pages/who.html">
 				<h3 class="menu-cell">
 					Who can give blood?
 				</h3>
 			</a>
-			<h3 class="menu-cell">
-				Donation process
-			</h3>
+			<a href="#">
+				<h3 class="menu-cell">
+					Donation process
+				</h3>
+			</a>
 		</div>
 	</header>
 	<main class="flex">
-		<a href="src/pages/login.html">
+		<a href="http://localhost:8080/src/pages/donorLogin.html">
 			<div id="doner_icon" class="icon flex button">
 				<div class=" icon_sign glyphicon glyphicon-tint"></div>
 				<div class="icon_text">Donor</div>
 			</div>
 		</a>
-		<a href="#">
+		<a href="http://localhost:8080/src/pages/doctorLogin.html">
 			<div id="doctor_icon" class="icon flex button">
 				<div class="icon_sign fa fa-user-md"></div>
 				<div class="icon_text">Doctor</div>
 			</div>
 		</a>
-		<a href="#">
+		<a href="http://localhost:8080/src/pages/personnelLogin.html">
 			<div id="staff_icon" class="icon flex button">
 				<div class="icon_sign glyphicon glyphicon-plus-sign"></div>
 				<div class="icon_text">Transfusion Center Staff</div>
 			</div>
 		</a>
-		<a href="#">
+		<a href="http://localhost:8080/src/pages/adminLogin.html">
 			<div id="admin_icon" class="icon flex button">
 				<div class="icon_sign glyphicon glyphicon-briefcase"></div>
 				<div class="icon_text">Admin</div>
