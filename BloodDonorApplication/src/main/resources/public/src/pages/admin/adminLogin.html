@@ -86,6 +86,8 @@
         .fail(function(result){
           if(result.responseText.localeCompare("Succesfully logged in") == 0)
             window.location.href = "http://localhost:8080/src/pages/admin/admin.html";
+          else if(result.responseText.localeCompare("Wrong user") == 0)
+            alert("Wrong user type");
           else
             alert("Wrong login data");
                    

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/all.css">
 </head>
 <body>
@@ -17,23 +17,23 @@
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
       <div class="login">
-        Donor Page
+        Personnel Page
       </div>
     </div>
     <div class="bar2 flex">
-      <a id="donationsHistoryLink" href="http://localhost:8080/src/pages/donor/donationsHistory.html">
+      <a href="http://localhost:8080/src/pages/personnel/addDonation.html">
         <h3 class="menu-cell">
-          Donations History
+          Add Donation
         </h3>
       </a>
-      <a href="#">
+      <a href="http://localhost:8080/src/pages/personnel/pendingRequests.html">
         <h3 class="menu-cell">
-          Check Eligibility
+          Pending Requests
         </h3>
       </a>
-      <a href="#">
+      <a href="http://localhost:8080/src/pages/personnel/donationsHistory.html">
         <h3 class="menu-cell">
-         Donation process
+         Donations History
         </h3>
       </a>
     </div>
@@ -72,23 +72,8 @@
     
   </footer>
 
-
-  <script>
-
-    $(document).ready(function(){ 
-      console.log(window.location.search.substr(1));
-      var url = window.location.search.substr(1)
-      var res = url.split("=");
-      var user = res[1];
-      var donationsHistoryLink = document.getElementById('donationsHistoryLink');
-      donationsHistoryLink.href = "http://localhost:8080/src/pages/donor/donationsHistory.html?user=" + user;
-    });
-
-  </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  
 </body>
 </html>

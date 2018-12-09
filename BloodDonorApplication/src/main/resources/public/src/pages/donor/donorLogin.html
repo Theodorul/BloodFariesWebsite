@@ -68,7 +68,7 @@
     
       $('#Login').on('submit', function(event){
         var inputs = $('#Login :input'); 
-
+        var user = ($(inputs[0]).val());
         var data = {};
         data['email'] = ($(inputs[0]).val());
         data['pass'] = ($(inputs[1]).val());
@@ -87,7 +87,9 @@
       })
         .fail(function(result){
           if(result.responseText.localeCompare("Succesfully logged in") == 0)
-            window.location.href = "http://localhost:8080/src/pages/donor/donor.html";
+            window.location.href = "http://localhost:8080/src/pages/donor/donor.html?user=" + user;
+          else if(result.responseText.localeCompare("Wrong user") == 0)
+            alert("Wrong user type");
           else
             alert("Wrong login data");
                    

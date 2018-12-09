@@ -21,21 +21,21 @@
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
       <div class="login">
-        Donation Request
+        Add Donation
       </div>
     </div>
     <div class="bar2 flex">
-      <a href="http://localhost:8080/src/pages/doctor/donationRequest.html">
+      <a href="http://localhost:8080/src/pages/personnel/addDonation.html">
         <h3 class="menu-cell">
-          Donation Request
+          Add Donation
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/requestsStatus.html">
+      <a href="http://localhost:8080/src/pages/personnel/pendingRequests.html">
         <h3 class="menu-cell">
           Requests Status
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/donationsHistory.html">
+      <a href="http://localhost:8080/src/pages/personnel/donationsHistory.html">
         <h3 class="menu-cell">
          Donations History
         </h3>
@@ -43,9 +43,22 @@
     </div>
   </header>
   <main class="flex">
-    <form id="donationRequest">
+    <form id="addDonation">
           <div class="form-group">
-              <input type="text" class="form-control" id="bloodType" placeholder="Blood Type">
+        <select id="selectBloodType">
+          <option value="" disabled selected>Blood Type</option>
+          <option value="0-">0-</option>
+          <option value="0+">0+</option>
+          <option value="A-">A-</option>
+          <option value="A+">A+</option>
+          <option value="B-">B-</option>
+          <option value="B+">B+</option>
+          <option value="AB-">AB-</option>
+          <option value="AB+">AB+</option> 
+        </select>         
+      </div>   
+          <div class="form-group">
+            <input type="date" class="form-control" id="donationDate" placeholder="Donation Date">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="location" placeholder="Location">
@@ -53,13 +66,26 @@
           <div class="form-group">
             <input type="text" class="form-control" id="hospital" placeholder="Hospital">
           </div>
+           <div class="form-group">
+            <input type="text" class="form-control" id="donor" placeholder="Donor">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="donationResult" placeholder="Donation Result">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="comments" placeholder="Comments">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="beneficiary" placeholder="Beneficiary" name="fadf">
+          </div>
 
           </div>
           
 
-        <button type="submit" class="btn btn-primary">Make Request</button>
+        <button type="submit" class="btn btn-primary">Add Donation</button>
       </form>
     
+ 
   </main>
   <footer>
     
@@ -67,19 +93,20 @@
 
   <script>
     
-      $('#donationRequest').on('submit', function(event){
-        var inputs = $('#donationRequest :input'); 
-
+      $('#addDonation').on('submit', function(event){
+        var inputs = $('#addDonation :input'); 
+        console.log(inputs);
         var data = {};
-        data['bloodType'] = ($(inputs[0]).val());
-        data['location'] = ($(inputs[1]).val());
-        data['hospital'] = ($(inputs[2]).val());
-        data['rh'] = "";
+        data['email'] = ($(inputs[4]).val());
+        data['donation_date'] = ($(inputs[1]).val());
+        data['donation_result'] = ($(inputs[5]).val());
+        data['comments'] = ($(inputs[6]).val());
+        data['beneficiary'] = ($(inputs[7]).val());
         
-      
+      console.log(JSON.stringify(data));
         
         $.ajax({
-          url: '/add/request',
+          url: '/add/donation',
           contentType: "application/json",
           type: 'put',
           data: JSON.stringify(data),
