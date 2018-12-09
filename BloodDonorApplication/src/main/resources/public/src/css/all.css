@@ -1,3 +1,8 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
 body {
 	font-family: 'Cherry Swash';font-size: 22px;
 }
@@ -7,17 +12,32 @@ a, a:hover {
 	color: inherit;
 }
 
+ul {
+	list-style-type: none;
+}
+
+input, input:focus {
+	outline: none;
+}
+
+h3 {
+	font-size: 2.75rem;
+	line-height: 1.5;
+}
+
 .flex {
 	display: flex;
 	align-items: center;
 }
 
-.button {
-	box-shadow: 5px 5px #777777;
+.space_around {
+    margin: 100px;
 }
 
-.button:hover {
-	background-color: 
+/*--- Buttons ---*/
+
+.button {
+	box-shadow: 5px 5px #777777;
 }
 
 .button:active {
@@ -26,9 +46,11 @@ a, a:hover {
 	transform: translateX(2px);
 }
 
+/*--- Header ---*/
+
 .bar1 {
 	justify-content: space-between;
-	
+	background-color: white;
 }
 
 .login {
@@ -50,5 +72,28 @@ a, a:hover {
 
 .carousel-item {
 	height: 500px;
-
 }
+
+
+/*--- Sticky Footer ---*/
+
+.wrapper {
+	min-height: 100%;
+
+	/* Equal to height of footer */
+	/* But also accounting for potential margin-bottom of last child */
+	margin-bottom: -40px;
+}
+
+footer {
+	background-color: #f02323;
+	height: 40px;
+	color: white;
+	width: 100%;
+	justify-content: center;
+}
+
+.push {
+	height: 40px;
+}
+

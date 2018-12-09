@@ -1,0 +1,97 @@
+main {
+	margin: 100px;
+}
+
+/*--- Quiz ---*/
+
+h1 {
+	margin-left: 400px;
+	margin-bottom: 50px;
+	color: #f02323;
+}
+
+li {
+	border: 1px solid #c3c3c3;
+	margin-bottom: 50px; 
+	padding: 10px;
+	box-shadow: 4px 4px 4px rgba(195, 195, 195);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f3f3f3;
+}
+
+li h3 {
+	width: 900px;
+}
+
+.answer{
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	cursor: pointer;
+}
+
+li input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+span {
+	position: absolute;
+	right: 160px;
+	height: 30px;
+	width: 30px;
+	border: 2px solid #c3c3c3;
+	border-radius: 20%;
+	background-color: white;
+}
+
+input:checked ~ span{
+	background-color: #f02323;
+}
+
+.button {
+	height: 80px;
+	width: 300px;
+	margin-left: 400px;
+	margin-top: 50px; 
+	font-weight: bold;
+}
+
+#pos_result {
+	display: none;
+}
+
+#neg_result {
+	display: none;
+}
+
+#pos_result, #neg_result {
+	justify-content: space-around;
+}
+
+.signal{
+	height: 200px;
+	width: 200px;
+	border-radius: 20%;
+	box-shadow: 10px black;
+	font-weight: bold;
+	font-size: 170px;
+}
+
+.yes {
+	border: 8px solid #40931f;
+	background-color: #81b76a;
+	color: #40931f;
+}
+
+.no {
+	border: 8px solid #f02323;
+	background-color: #efa370;
+	color: #f02323;
+	font-size: 185px;
+}
