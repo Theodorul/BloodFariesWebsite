@@ -126,11 +126,10 @@
           dataType: 'json',
           timeout: 5000})
         .done(function(result){
-          console.log("afafad");
-          alert("merge");
+         
       })
         .fail(function(result){
-          console.log(result.responseText);          
+          window.location.href = "http://localhost:8080/src/pages/donorLogin.html";         
         });
         event.preventDefault();
     });

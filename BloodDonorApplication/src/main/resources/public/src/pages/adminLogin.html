@@ -81,11 +81,14 @@
           dataType: 'json',
           timeout: 5000})
         .done(function(result){
-          console.log("afafad");
-          alert("merge");
+          
       })
         .fail(function(result){
-          console.log(result.responseText);          
+          if(result.responseText.localeCompare("Succesfully logged in") == 0)
+            window.location.href = "http://localhost:8080/src/pages/admin.html";
+          else
+            alert("Wrong login data");
+                   
         });
         event.preventDefault();
     });

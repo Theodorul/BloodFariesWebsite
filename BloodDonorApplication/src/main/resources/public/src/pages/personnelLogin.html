@@ -52,7 +52,9 @@
           <div class="form-group">
               <input type="password" class="form-control" id="inputPassword" placeholder="Password">
           </div>
-         
+          <div class="signup">
+            <a href="http://localhost:8080/src/pages/registerPersonnel.html">Don't have an account?</a>
+          </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
@@ -81,11 +83,14 @@
           dataType: 'json',
           timeout: 5000})
         .done(function(result){
-          console.log("afafad");
-          alert("merge");
+          
       })
         .fail(function(result){
-          console.log(result.responseText);          
+          if(result.responseText.localeCompare("Succesfully logged in") == 0)
+            window.location.href = "http://localhost:8080/src/pages/personnel.html";
+          else
+            alert("Wrong login data");
+                   
         });
         event.preventDefault();
     });
