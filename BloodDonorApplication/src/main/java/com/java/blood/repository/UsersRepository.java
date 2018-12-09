@@ -24,7 +24,7 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
                     @Param("age") Integer age, @Param("weight") Integer weight,
                     @Param("pulse") Integer pulse, @Param("tension") Integer tension,
                     @Param("diseases") Integer diseases, @Param("gender") String gender,
-                    @Param("pass") String pass,@Param("pass") String bt
+                    @Param("pass") String pass,@Param("bt") String bt
                     );
     @Modifying
     @Transactional
