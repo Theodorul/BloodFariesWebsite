@@ -87,7 +87,11 @@
           alert("merge");
       })
         .fail(function(result){
-          console.log(result.responseText);          
+          if(result.responseText.localeCompare("Succesfully logged in") == 0)
+            window.location.href = "http://localhost:8080/src/pages/donor.html";
+          else
+            alert("Wrong login data");
+                   
         });
         event.preventDefault();
     });
