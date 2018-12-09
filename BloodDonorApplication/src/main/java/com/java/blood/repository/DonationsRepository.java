@@ -43,4 +43,8 @@ public interface DonationsRepository extends JpaRepository<DonationRequestsEntit
 
     @Query(value = "select u.requestId, u.bloodType, u.location, u.hospital from DonationRequestsEntity u")
     List<DonationRequestsEntity> getAllRequests();
+
+
+    @Query(value = "select request_id from donation_requests", nativeQuery = true)
+    List<Integer> getAllRequestsAsInt();
 }

@@ -23,8 +23,8 @@ public class UsersController {
     private UsersService usersService;
 
     @RequestMapping(value = "/add/donor", method = RequestMethod.PUT)
-    public void addDonor(@RequestBody UsersEntity usersEntity) throws NoSuchAlgorithmException {
-        usersService.addDonor(usersEntity);
+    public String addDonor(@RequestBody UsersEntity usersEntity) throws NoSuchAlgorithmException {
+        return usersService.addDonor(usersEntity);
     }
 
     @RequestMapping(value = "/add/doctor", method = RequestMethod.PUT)
@@ -33,8 +33,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/delete/user/{email}", method = RequestMethod.DELETE)
-    public void deleteDoctor(@PathVariable("email") String name){
-        usersService.deleteUser(name);
+    public String deleteDoctor(@PathVariable("email") String name){
+        return usersService.deleteUser(name);
     }
 
     @RequestMapping(value = "/getRoleForUser/{email}", method = RequestMethod.GET)

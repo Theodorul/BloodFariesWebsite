@@ -8,11 +8,11 @@ import java.security.NoSuchAlgorithmException;
 
 public interface UsersService {
 
-    void addDonor(UsersEntity usersEntity) throws NoSuchAlgorithmException;
+    String addDonor(UsersEntity usersEntity) throws NoSuchAlgorithmException;
 
     void addDoctor(DoctorBean doctorBean) throws NoSuchAlgorithmException;
 
-    void deleteUser(String email);
+    String deleteUser(String email);
 
     String login(LoginBean loginBean) throws NoSuchAlgorithmException;
 

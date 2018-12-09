@@ -70,4 +70,7 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     @Query("select u.email from UsersEntity u")
     List<String> getAllEmails();
 
+    @Query("select u.userId from UsersEntity u")
+    List<Integer> getAllIds();
+
 }

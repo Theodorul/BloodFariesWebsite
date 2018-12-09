@@ -25,13 +25,14 @@ public class UsersServiceImpl implements UsersService {
     private UsersRepository usersRepository;
 
     @Override
-    public void addDonor(UsersEntity usersEntity) throws NoSuchAlgorithmException {
+    public String addDonor(UsersEntity usersEntity) throws NoSuchAlgorithmException {
         usersRepository.addDonator(usersEntity.getName(), usersEntity.getEmail(),
                 usersEntity.getLocation(), usersEntity.getAge(), usersEntity.getWeightInKg(),
                 usersEntity.getPulse(),usersEntity.getTension(),usersEntity.getDiseases(),
                 usersEntity.getGender(), hashPassword(usersEntity.getPass()), usersEntity.getBlood_type(),
                 usersEntity.getHospital());
         usersRepository.addRoleOnDonator(usersRepository.getIdFromName(usersEntity.getEmail()), usersEntity.getRole());
+        return "User added successfully";
     }
 
     @Override
@@ -42,9 +43,10 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void deleteUser(String email) {
+    public String deleteUser(String email) {
         usersRepository.deleteUser(email);
         usersRepository.deleteRoleFromUsers();
+        return "User deleted successfully";
     }
 
     @Override

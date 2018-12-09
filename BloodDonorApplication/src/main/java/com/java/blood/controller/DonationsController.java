@@ -11,6 +11,8 @@ import com.java.blood.repository.UsersRepository;
 import com.java.blood.services.DonationsService;
 import com.java.blood.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,20 +33,21 @@ public class DonationsController {
     private UsersService usersService;
 
     @RequestMapping(value = "/add/request", method = RequestMethod.PUT)
-    public void addRequest(@RequestBody DonationRequestsEntity donationRequestsEntity) {
-        donationsService.addRequest(donationRequestsEntity);
+    public String addRequest(@RequestBody DonationRequestsEntity donationRequestsEntity) {
+        return donationsService.addRequest(donationRequestsEntity);
     }
     @RequestMapping(value = "/add/donation", method = RequestMethod.PUT)
-    public void addRequest(@RequestBody HistoryAdderBean historyAdderBean) {
-        donationsService.addDonation(historyAdderBean);
+    public String addRequest(@RequestBody HistoryAdderBean historyAdderBean) {
+        return donationsService.addDonation(historyAdderBean);
     }
     @RequestMapping(value = "/getHistory/{email}", method = RequestMethod.GET)
-    public List<HistoryResponseBean> getDataByUserFromHistory(@PathVariable("email") String email) {
-        return donationsService.getDataFromHistory(usersRepository.getIdFromName(email));
+    public ResponseEntity getDataByUserFromHistory(@PathVariable("email") String email) {
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(donationsService.getDataFromHistory(usersRepository.getIdFromName(email)));
     }
     @RequestMapping(value = "/getAllRequests", method = RequestMethod.GET)
-    public List<DonationRequestsEntity> getAllRequests() {
-        return donationsService.getAllRequests();
+    public ResponseEntity getAllRequests() {
+        return ResponseEntity.status(HttpStatus.OK).body(donationsService.getAllRequests());
     }
 }
 

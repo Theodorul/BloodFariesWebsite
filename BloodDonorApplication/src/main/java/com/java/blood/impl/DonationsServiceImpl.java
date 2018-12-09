@@ -22,17 +22,19 @@ public class DonationsServiceImpl implements DonationsService {
     private UsersRepository usersRepository;
 
     @Override
-    public void addRequest(DonationRequestsEntity donationRequestsEntity) {
+    public String addRequest(DonationRequestsEntity donationRequestsEntity) {
         donationsRepository.addRequest(donationRequestsEntity.getRh(), donationRequestsEntity.getBloodType(),
                 donationRequestsEntity.getReasonToRequest(),
                 donationRequestsEntity.getLocation(), donationRequestsEntity.getHospital());
+        return "Donation request registered successfully";
     }
 
     @Override
-    public void addDonation(HistoryAdderBean historyAdderBean) {
+    public String addDonation(HistoryAdderBean historyAdderBean) {
         donationsRepository.addDonationInHistory(usersRepository.getIdFromName(historyAdderBean.getEmail()),
                 historyAdderBean.getDonation_date(),historyAdderBean.getDonation_result(),historyAdderBean.getComments(),
                 historyAdderBean.getBeneficiary());
+        return "Donation registered successfully";
     }
 
     @Override
