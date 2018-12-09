@@ -20,11 +20,11 @@
       <div id="logo">
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
-     
-      <div class="login">
-        Donor Login
-      </div>
       
+      <div class="login">
+        Doctor Registration
+      </div>
+     
     </div>
     <div class="bar2 flex">
       <a href="http://localhost:8080/src/pages/why.html">
@@ -32,12 +32,12 @@
           Why give blood?
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/who.html">       
+      <a href="http://localhost:8080/src/pages/who.html">
         <h3 class="menu-cell">
           Who can give blood?
         </h3>
       </a>
-      <a href="#">        
+      <a href="#">
         <h3 class="menu-cell">
           Donation process
         </h3>
@@ -45,40 +45,58 @@
     </div>
   </header>
   <main class="flex">
-    <form id="Login">
-          <div class="form-group">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
-          </div>
-          <div class="form-group">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-          </div>
-          <div class="signup">
-            <a href="http://localhost:8080/src/pages/registerDonor.html">Don't have an account?</a>
-          </div>
+    <form id="Register">
+      <div class="form-group">
+          <input type="text" class="form-control" id="inputName" placeholder="Name">
+      </div>
+      <div class="form-group">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+      </div>
+      <div class="form-group">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control" id="inputLocation" placeholder="Location">
+      </div>
+      
+              
 
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
   </main>
   <footer>
     
   </footer>
+</body>
 
-
-  <script>
+<script>
     
-      $('#Login').on('submit', function(event){
-        var inputs = $('#Login :input'); 
+      $('#Register').on('submit', function(event){
+        var inputs = $('#Register :input'); 
 
         var data = {};
-        data['email'] = ($(inputs[0]).val());
-        data['pass'] = ($(inputs[1]).val());
-        data['role'] = 0;
-      
+        
+        data['name'] = ($(inputs[0]).val());
+        data['email'] = ($(inputs[1]).val());
+        data['location'] = ($(inputs[3]).val());
+        data['age'] = 0;
+        data['weightInKg'] = 0;
+
+        data['pulse'] = 0;
+        data['tension'] = 0;
+        data['diseases'] = 0;
+        data['gender'] = "";
+        data['under_treatment'] = 0;
+        data['pass'] = ($(inputs[2]).val());
+        data['blood_type'] = "";
+        
+        
+        console.log(JSON.stringify(data));
         
         $.ajax({
-          url: '/login',
+          url: '/add/donor',
           contentType: "application/json",
-          type: 'post',
+          type: 'put',
           data: JSON.stringify(data),
           dataType: 'json',
           timeout: 5000})
@@ -86,11 +104,7 @@
           
       })
         .fail(function(result){
-          if(result.responseText.localeCompare("Succesfully logged in") == 0)
-            window.location.href = "http://localhost:8080/src/pages/donor.html";
-          else
-            alert("Wrong login data");
-                   
+          window.location.href = "http://localhost:8080/src/pages/doctor/doctorLogin.html";          
         });
         event.preventDefault();
     });
@@ -100,9 +114,4 @@
     
 
   </script>
-
-</body>
-
-
-
 </html>

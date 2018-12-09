@@ -22,7 +22,7 @@
       </div>
      
       <div class="login">
-        Doctor Login
+        Donor Login
       </div>
       
     </div>
@@ -53,7 +53,7 @@
               <input type="password" class="form-control" id="inputPassword" placeholder="Password">
           </div>
           <div class="signup">
-            <a href="http://localhost:8080/src/pages/registerDoctor.html">Don't have an account?</a>
+            <a href="http://localhost:8080/src/pages/donor/registerDonor.html">Don't have an account?</a>
           </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
@@ -87,7 +87,7 @@
       })
         .fail(function(result){
           if(result.responseText.localeCompare("Succesfully logged in") == 0)
-            window.location.href = "http://localhost:8080/src/pages/doctor.html";
+            window.location.href = "http://localhost:8080/src/pages/donor/donor.html";
           else
             alert("Wrong login data");
                    

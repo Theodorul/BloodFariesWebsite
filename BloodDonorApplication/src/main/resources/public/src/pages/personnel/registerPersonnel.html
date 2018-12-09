@@ -22,7 +22,7 @@
       </div>
       
       <div class="login">
-        Donor Registration
+        Personnel Registration
       </div>
      
     </div>
@@ -58,33 +58,7 @@
       <div class="form-group">
           <input type="text" class="form-control" id="inputLocation" placeholder="Location">
       </div>
-      <div class="form-group">
-          <input type="number" class="form-control" id="inputAge" placeholder="Age">
-      </div>
-      <div class="form-group">
-          <input type="number" class="form-control" id="inputWeight" placeholder="Weight(kg)">
-      </div>  
-
-      <div class="form-group">
-        <select id="selectGender">
-          <option value="" disabled selected>Gender</option>
-          <option value="Male">Male</option>
-          <option value="Male">Female</option> 
-        </select>         
-      </div>   
-      <div class="form-group">
-        <select id="selectBloodType">
-          <option value="" disabled selected>Blood Type</option>
-          <option value="0-">0-</option>
-          <option value="0+">0+</option>
-          <option value="A-">A-</option>
-          <option value="A+">A+</option>
-          <option value="B-">B-</option>
-          <option value="B+">B+</option>
-          <option value="AB-">AB-</option>
-          <option value="AB+">AB+</option> 
-        </select>         
-      </div>    
+      
               
 
       <button type="submit" class="btn btn-primary">Sign Up</button>
@@ -105,16 +79,16 @@
         data['name'] = ($(inputs[0]).val());
         data['email'] = ($(inputs[1]).val());
         data['location'] = ($(inputs[3]).val());
-        data['age'] = ($(inputs[4]).val());
-        data['weightInKg'] = ($(inputs[5]).val());
+        data['age'] = 0;
+        data['weightInKg'] = 0;
 
         data['pulse'] = 0;
         data['tension'] = 0;
         data['diseases'] = 0;
-        data['gender'] = $('#selectGender').find(":selected").text();
+        data['gender'] = "";
         data['under_treatment'] = 0;
         data['pass'] = ($(inputs[2]).val());
-        data['blood_type'] = $('#selectBloodType').find(":selected").text();
+        data['blood_type'] = "";
         
         console.log(JSON.stringify(data));
         
@@ -126,10 +100,10 @@
           dataType: 'json',
           timeout: 5000})
         .done(function(result){
-         
+          
       })
         .fail(function(result){
-          window.location.href = "http://localhost:8080/src/pages/donorLogin.html";         
+          window.location.href = "http://localhost:8080/src/pages/personnel/personnelLogin.html";          
         });
         event.preventDefault();
     });
