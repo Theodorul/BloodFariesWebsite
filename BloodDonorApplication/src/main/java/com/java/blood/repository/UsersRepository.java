@@ -18,13 +18,13 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     @Query(value = "insert into " +
             "users(name, email, location, age, weight_in_kg," +
             "pulse,tension, diseases,gender,password) " +
-            "values (?1,?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9,?10)" , nativeQuery = true)
+            "values (?1,?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9,?10,?11)" , nativeQuery = true)
     void addDonator(@Param("name") String name,@Param("email") String email,
                     @Param("location") String location,
                     @Param("age") Integer age, @Param("weight") Integer weight,
                     @Param("pulse") Integer pulse, @Param("tension") Integer tension,
                     @Param("diseases") Integer diseases, @Param("gender") String gender,
-                    @Param("pass") String pass
+                    @Param("pass") String pass,@Param("pass") String bt
                     );
     @Modifying
     @Transactional

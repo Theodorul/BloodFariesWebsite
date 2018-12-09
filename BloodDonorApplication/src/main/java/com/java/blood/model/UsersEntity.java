@@ -18,6 +18,7 @@ public class UsersEntity {
     private String gender;
     private Integer underTreatment;
     private String pass;
+    private String blood_type;
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -27,6 +28,16 @@ public class UsersEntity {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "blood_type" , length = 20)
+    public String getBlood_type() {
+        return blood_type;
+    }
+
+    public void setBlood_type(String blood_type) {
+        this.blood_type = blood_type;
     }
 
     @Basic
