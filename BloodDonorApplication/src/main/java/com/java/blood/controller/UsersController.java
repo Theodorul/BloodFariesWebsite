@@ -51,9 +51,9 @@ public class UsersController {
     public String getLoginResponse(@RequestBody LoginBean loginBean) throws NoSuchAlgorithmException {
         return usersService.login(loginBean);
     }
-    @RequestMapping(value = "/sendMail", method = RequestMethod.POST)
-    public String sendMail() {
-        mailService.send();
+    @RequestMapping(value = "/sendMail/{to}", method = RequestMethod.POST)
+    public String sendMail(@PathVariable("to") String to) {
+        mailService.send(to);
         return "Mail successfully sent";
     }
 }

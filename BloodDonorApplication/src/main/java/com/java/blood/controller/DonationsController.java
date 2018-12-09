@@ -2,10 +2,7 @@ package com.java.blood.controller;
 
 
 import com.java.blood.beans.HistoryAdderBean;
-import com.java.blood.beans.HistoryResponseBean;
 import com.java.blood.model.DonationRequestsEntity;
-import com.java.blood.model.DonationsHistoryEntity;
-import com.java.blood.model.UsersEntity;
 import com.java.blood.repository.DonationsRepository;
 import com.java.blood.repository.UsersRepository;
 import com.java.blood.services.DonationsService;
@@ -15,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 public class DonationsController {
@@ -48,6 +44,10 @@ public class DonationsController {
     @RequestMapping(value = "/getAllRequests", method = RequestMethod.GET)
     public ResponseEntity getAllRequests() {
         return ResponseEntity.status(HttpStatus.OK).body(donationsService.getAllRequests());
+    }
+    @RequestMapping(value = "/getWholeHistory", method = RequestMethod.GET)
+    public ResponseEntity getFullHistory() {
+        return ResponseEntity.status(HttpStatus.OK).body(donationsService.getFullHistoryFromHistory());
     }
 }
 
