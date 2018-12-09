@@ -12,6 +12,14 @@ a, a:hover {
 	color: inherit;
 }
 
+ul {
+  list-style-type: none;
+}
+
+input, input:focus {
+	outline: none;
+}
+
 h3 {
 	font-size: 2.75rem;
 	line-height: 1.5;
@@ -22,12 +30,10 @@ h3 {
 	align-items: center;
 }
 
+/*--- Buttons ---*/
+
 .button {
 	box-shadow: 5px 5px #777777;
-}
-
-.button:hover {
-	background-color: 
 }
 
 .button:active {
@@ -36,9 +42,11 @@ h3 {
 	transform: translateX(2px);
 }
 
+/*--- Header ---*/
+
 .bar1 {
 	justify-content: space-between;
-	
+	background-color: white;
 }
 
 .login {
@@ -60,7 +68,6 @@ h3 {
 
 .carousel-item {
 	height: 500px;
-
 }
 
 

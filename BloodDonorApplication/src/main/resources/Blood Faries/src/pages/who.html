@@ -11,7 +11,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="../css/all.css">
+	<link rel="stylesheet" type="text/css" href="../css/who.css">
+	<link rel="stylesheet" type="text/css" href="../css/all.css">	
 </head>
 <body>
 	<div class="wrapper">
@@ -48,69 +49,157 @@
 		</header>
 		<main>
 			<h1>Blood Eligibility Quiz</h1>
-			<form>
-				<ul>
-					<li>
-						<h3>Are you under 18?</h3>
-						<label><input type="radio" name="q1" value="yes">Yes</label>
-						<label><input type="radio" name="q1" value="no">No</label>
-					</li>
-					<li>
-						<h3>Are you 65 years of age or over?</h3>
-						<label><input type="radio" name="q2" value="yes">Yes</label>
-						<label><input type="radio" name="q2" value="no">No</label>
-					</li>
-					<li>
-						<h3>Do you weigh less than 50kg or more than 130kg?</h3>
-						<label><input type="radio" name="q3" value="yes">Yes</label>
-						<label><input type="radio" name="q3" value="no">No</label>
-					</li>
-					<li>
-						<h3>Today or in the last 2 weeks have you had any illness or injury, e.g. a cough, a cold, a sore throat, vomiting, diarrhoea or an open wound?</h3>
-						<label><input type="radio" name="q4" value="yes">Yes</label>
-						<label><input type="radio" name="q4" value="no">No</label>
-					</li>
-					<li>
-						<h3>Are you currently taking any medication other than the pill or HRT for the menopause? This includes prescribed or over the counter painkillers, aspirin, anti-inflammatories and creams, gels, or drops.</h3>
-						<label><input type="radio" name="q5" value="yes">Yes</label>
-						<label><input type="radio" name="q5" value="no">No</label>
-					</li>
-					<li>
-						<h3>Have you had any medical tests or investigations in the last 4 months or since your last donation?</h3>
-						<label><input type="radio" name="q6" value="yes">Yes</label>
-						<label><input type="radio" name="q6" value="no">No</label>
-					</li>
-					<li>
-						<h3>Have you had a tattoo or body piercing in the last 4 months?</h3>
-						<label><input type="radio" name="q7" value="yes">Yes</label>
-						<label><input type="radio" name="q7" value="no">No</label>
-					</li>
-					<li>
-						<h3>For women; are you pregnant or have you have you been pregnant in the past 12 months?</h3>
-						<label><input type="radio" name="q8" value="yes">Yes</label>
-						<label><input type="radio" name="q8" value="no">No</label>
-					</li>
-					<li>
-						<h3>Have you ever had a sexually transmitted infection (STI)?</h3>
-						<label><input type="radio" name="q9" value="yes">Yes</label>
-						<label><input type="radio" name="q9" value="no">No</label>
-					</li>
-					<li>
-						<h3>Have you ever had a blood transfusion?</h3>
-						<label><input type="radio" name="q10" value="yes">Yes</label>
-						<label><input type="radio" name="q10" value="no">No</label>
-					</li>
-				</ul>
-			</form> 
-			<div>
-				<input type="submit" name="submit">
+			<div id="quiz">
+				<form id="quiz_form" name="quiz_form">
+					<ul>
+						<li>
+							<h3>Are you under 18?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q1" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q1" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Are you 65 years of age or over?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q2" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q2" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Do you weigh less than 50kg or more than 130kg?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q3" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q3" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Today or in the last 2 weeks have you had any illness or injury, e.g. a cough, a cold, a sore throat, vomiting, diarrhoea or an open wound?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q4" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q4" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Are you currently taking any medication other than the pill or HRT for the menopause? This includes prescribed or over the counter painkillers, aspirin, anti-inflammatories and creams, gels, or drops.</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q5" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q5" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Have you had any medical tests or investigations in the last 4 months or since your last donation?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q6" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q6" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Have you had a tattoo or body piercing in the last 4 months?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q7" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q7" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>For women; are you pregnant or have you have you been pregnant in the past 12 months?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q8" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q8" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Have you ever had a sexually transmitted infection (STI)?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q9" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q9" value="no"><span></span>No</label>
+							</div>
+						</li>
+						<li>
+							<h3>Have you ever had a blood transfusion?</h3>
+							<div class="answer">
+								<label><input type="radio" id="in" name="q10" value="yes"><span></span>Yes</label>
+								<label><input type="radio" id="in" name="q10" value="no"><span></span>No</label>
+							</div>
+						</li>
+					</ul>
+				</form> 
+				<div>
+					<input type="submit" name="submit" class="button" onclick="check();">
+				</div>
+			</div>
+			<div id="pos_result">
+				<div>
+					Thank you for completing the eligibility quiz!
+					<h3>You <b> can </b> donate!</h3>
+				</div>
+				<div class="signal yes glyphicon glyphicon-ok"></div>
+			</div>
+			<div id="neg_result">
+				<div>
+					Thank you for completing the eligibility quiz!
+					<h3>You <b> cannot </b> donate!</h3>
+				</div>
+				<div class="signal no glyphicon glyphicon-remove"></div>
 			</div>
 		</main>
 
 		<div class="push"></div>
 	</div>
 	<footer class="flex">
-		BloodFairies&copy; ,2018
+		BloodFairies&copy; 2018
 	</footer>
+
+	<!-- Script -->
+	<script type="text/javascript">
+		function check(){
+			var question1 = document.quiz_form.q1.value;
+			var question2 = document.quiz_form.q2.value;
+			var question3 = document.quiz_form.q3.value;
+			var question4 = document.quiz_form.q4.value;
+			var question5 = document.quiz_form.q5.value;
+			var question6 = document.quiz_form.q6.value;
+			var question7 = document.quiz_form.q7.value;
+			var question8 = document.quiz_form.q8.value;
+			var question9 = document.quiz_form.q9.value;
+			var question10 = document.quiz_form.q10.value;
+
+			var canDonate = 0;
+			var incomplete = 0;
+
+			if(question1 == "yes") canDonate++;
+			else if(question1 != "no") incomplete++;
+			if(question2 == "yes") canDonate++;
+			else if(question2 != "no") incomplete++;
+			if(question3 == "yes") canDonate++;
+			else if(question3 != "no") incomplete++;
+			if(question4 == "yes") canDonate++;
+			else if(question4 != "no") incomplete++;
+			if(question5 == "yes") canDonate++;
+			else if(question5 != "no") incomplete++;
+			if(question6 == "yes") canDonate++;
+			else if(question6 != "no") incomplete++;
+			if(question7 == "yes") canDonate++;
+			else if(question7 != "no") incomplete++;
+			if(question8 == "yes") canDonate++;
+			else if(question8 != "no") incomplete++;
+			if(question9 == "yes") canDonate++;
+			else if(question9 != "no") incomplete++;
+			if(question10 == "yes") canDonate++;
+			else if(question10 != "no") incomplete++;
+
+			if(incomplete != 0) alert("You need to fill in all the fields!");
+			else{
+				document.getElementById("quiz").style.display = "none";
+				if(canDonate == 0){
+					document.getElementById("pos_result").style.display = "flex";
+				}
+				else {
+					document.getElementById("neg_result").style.display = "flex";
+				}
+			} 
+
+		}
+	</script>
 </body>
 </html>
