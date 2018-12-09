@@ -21,21 +21,23 @@
       </div>
     </div>
     <div class="bar2 flex">
+      <a id="homePage" href="http://localhost:8080/src/pages/donor/donor.html">
+        <h3 class="menu-cell">
+          Home Page
+        </h3>
+      </a>
       <a id="donationsHistoryLink" href="http://localhost:8080/src/pages/donor/donationsHistory.html">
         <h3 class="menu-cell">
           Donations History
         </h3>
       </a>
-      <a href="#">
+      <a id="checkEligibility" href="http://localhost:8080/src/pages/donor/who.html">
         <h3 class="menu-cell">
           Check Eligibility
         </h3>
       </a>
-      <a href="#">
-        <h3 class="menu-cell">
-         Donation process
-        </h3>
-      </a>
+
+      
     </div>
   </header>
   <main>
@@ -75,13 +77,18 @@
 
   <script>
 
-    $(document).ready(function(){ 
-      console.log(window.location.search.substr(1));
-      var url = window.location.search.substr(1)
+    $(document).ready(function(){       
+      var url = window.location.search.substr(1);
       var res = url.split("=");
       var user = res[1];
+      var homePage = document.getElementById('homePage');
+      var quiz = document.getElementById('checkEligibility');
       var donationsHistoryLink = document.getElementById('donationsHistoryLink');
       donationsHistoryLink.href = "http://localhost:8080/src/pages/donor/donationsHistory.html?user=" + user;
+      homePage.href = "http://localhost:8080/src/pages/donor/donor.html?user=" + user;
+      quiz.href = "http://localhost:8080/src/pages/donor/who.html?user=" + user;
+      
+
     });
 
   </script>

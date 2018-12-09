@@ -18,32 +18,35 @@
 <body>
 <div class="wrapper">
 	<header>
-		<div class="bar1 flex">
-			<a href="http://localhost:8080/index.html">
-				<div id="logo">
-					<img src="http://localhost:8080/src/img/logo.png" width="300" height="100">
-				</div>
-			</a>
-			
-			<div class="login">
-				Check Eligibility
-			</div>
-			
-		</div>
-		<div class="bar2 flex">
-			<a href="http://localhost:8080/src/pages/why.html">
-				<h3 class="menu-cell">
-					Why give blood?
-				</h3>
-			</a>
-			<a href="#">
-				<h3 class="menu-cell">
-					Check Eligibility
-				</h3>
-			</a>
-			
-		</div>
-	</header>
+
+    <div class="bar1 flex">
+      <div id="logo">
+        <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
+      </div>
+      <div class="login">
+        Check Eligibility
+      </div>
+    </div>
+    <div class="bar2 flex">
+      <a id="homePage" href="http://localhost:8080/src/pages/donor/donor.html">
+        <h3 class="menu-cell">
+          Home Page
+        </h3>
+      </a>
+      <a id="donationsHistoryLink" href="http://localhost:8080/src/pages/donor/donationsHistory.html">
+        <h3 class="menu-cell">
+          Donations History
+        </h3>
+      </a>
+      <a id="checkEligibility" href="http://localhost:8080/src/pages/donor/who.html">
+        <h3 class="menu-cell">
+          Check Eligibility
+        </h3>
+      </a>
+
+      
+    </div>
+  </header>
 	<main>
 		<h1>Blood Eligibility Quiz</h1>
 		<div id="quiz">
@@ -149,6 +152,20 @@
 
 <!-- Script -->
 <script type="text/javascript">
+	$(document).ready(function(){       
+      var url = window.location.search.substr(1);
+      var res = url.split("=");
+      var user = res[1];
+      var homePage = document.getElementById('homePage');
+      var quiz = document.getElementById('checkEligibility');
+      var donationsHistoryLink = document.getElementById('donationsHistoryLink');
+      donationsHistoryLink.href = "http://localhost:8080/src/pages/donor/donationsHistory.html?user=" + user;
+      homePage.href = "http://localhost:8080/src/pages/donor/donor.html?user=" + user;
+      quiz.href = "http://localhost:8080/src/pages/who.html?user=" + user;
+      
+
+    });
+
     function check(){
         var question1 = document.quiz_form.q1.value;
         var question2 = document.quiz_form.q2.value;
