@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/all.css">
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/first_page.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -20,52 +16,55 @@
       <div id="logo">
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
-     
       <div class="login">
-        Admin Login
+        Donation Request
       </div>
-      
     </div>
     <div class="bar2 flex">
-      <a href="http://localhost:8080/src/pages/why.html">
+      <a href="http://localhost:8080/src/pages/doctor/donationRequest.html">
         <h3 class="menu-cell">
-          Why give blood?
+          Donation Request
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/who.html">       
+      <a href="http://localhost:8080/src/pages/doctor/requestsStatus.html">
         <h3 class="menu-cell">
-          Who can give blood?
+          Requests Status
         </h3>
       </a>
-      <a href="#">        
+      <a href="http://localhost:8080/src/pages/doctor/donationsHistory.html">
         <h3 class="menu-cell">
-          Donation process
+         Donations History
         </h3>
       </a>
     </div>
   </header>
-  <main class="flex">
-    <form id="Login">
+  <main>
+    <form id="donationRequest">
           <div class="form-group">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+              <input type="text" class="form-control" id="bloodType" placeholder="Blood Type">
           </div>
           <div class="form-group">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <input type="text" class="form-control" id="location" placeholder="Location">
           </div>
-         
+          <div class="form-group">
+            <input type="text" class="form-control" id="hospital" placeholder="Hospital">
+          </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+          
+
+        <button type="submit" class="btn btn-primary">Make Request</button>
       </form>
+    
   </main>
   <footer>
     
   </footer>
 
-
   <script>
     
-      $('#Login').on('submit', function(event){
-        var inputs = $('#Login :input'); 
+      $('#donationRequest').on('submit', function(event){
+        var inputs = $('#donationRequest :input'); 
 
         var data = {};
         data['email'] = ($(inputs[0]).val());
@@ -85,7 +84,7 @@
       })
         .fail(function(result){
           if(result.responseText.localeCompare("Succesfully logged in") == 0)
-            window.location.href = "http://localhost:8080/src/pages/admin.html";
+            window.location.href = "http://localhost:8080/src/pages/doctor/doctor.html";
           else
             alert("Wrong login data");
                    
@@ -98,9 +97,5 @@
     
 
   </script>
-
 </body>
-
-
-
 </html>
