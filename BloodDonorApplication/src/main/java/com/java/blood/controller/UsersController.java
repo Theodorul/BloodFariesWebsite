@@ -7,11 +7,8 @@ import com.java.blood.model.UsersEntity;
 import com.java.blood.repository.UsersRepository;
 import com.java.blood.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
