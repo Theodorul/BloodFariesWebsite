@@ -67,15 +67,17 @@
         var inputs = $('#donationRequest :input'); 
 
         var data = {};
-        data['email'] = ($(inputs[0]).val());
-        data['pass'] = ($(inputs[1]).val());
-        data['role'] = 0;
+        data['bloodType'] = ($(inputs[0]).val());
+        data['location'] = ($(inputs[1]).val());
+        data['hospital'] = ($(inputs[2]).val());
+        data['rh'] = "";
+        
       
         
         $.ajax({
-          url: '/login',
+          url: '/add/request',
           contentType: "application/json",
-          type: 'post',
+          type: 'put',
           data: JSON.stringify(data),
           dataType: 'json',
           timeout: 5000})
