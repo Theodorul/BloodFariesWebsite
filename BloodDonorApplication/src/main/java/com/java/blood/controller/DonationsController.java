@@ -2,6 +2,7 @@ package com.java.blood.controller;
 
 
 import com.java.blood.beans.HistoryAdderBean;
+import com.java.blood.beans.HistoryResponseBean;
 import com.java.blood.model.DonationRequestsEntity;
 import com.java.blood.model.DonationsHistoryEntity;
 import com.java.blood.model.UsersEntity;
@@ -38,7 +39,12 @@ public class DonationsController {
         donationsService.addDonation(historyAdderBean);
     }
     @RequestMapping(value = "/getHistory/{email}", method = RequestMethod.GET)
-    public List<DonationsHistoryEntity> getDataByUserFromHistory(@PathVariable("email") String email) {
+    public List<HistoryResponseBean> getDataByUserFromHistory(@PathVariable("email") String email) {
         return donationsService.getDataFromHistory(usersRepository.getIdFromName(email));
     }
+    @RequestMapping(value = "/getAllRequests", method = RequestMethod.GET)
+    public List<DonationRequestsEntity> getAllRequests() {
+        return donationsService.getAllRequests();
+    }
 }
+

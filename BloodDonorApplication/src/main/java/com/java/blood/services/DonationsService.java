@@ -1,6 +1,7 @@
 package com.java.blood.services;
 
 import com.java.blood.beans.HistoryAdderBean;
+import com.java.blood.beans.HistoryResponseBean;
 import com.java.blood.model.DonationRequestsEntity;
 import com.java.blood.model.DonationsHistoryEntity;
 
@@ -12,5 +13,7 @@ public interface DonationsService {
 
     public void addDonation(HistoryAdderBean historyAdderBean);
 
-    public List<DonationsHistoryEntity> getDataFromHistory(Integer user_id);
+    public List<HistoryResponseBean> getDataFromHistory(Integer user_id);
+
+    List<DonationRequestsEntity> getAllRequests();
 }

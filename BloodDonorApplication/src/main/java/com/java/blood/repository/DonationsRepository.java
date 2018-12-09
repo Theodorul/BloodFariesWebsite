@@ -37,7 +37,10 @@ public interface DonationsRepository extends JpaRepository<DonationRequestsEntit
                     @Param("comments") String comments, @Param("beneficiary") String beneficiary
     );
 
-    @Query(value = "select u.donationDate , u.donationResult , u.comments, u.beneficiary from DonationsHistoryEntity u" +
-            " where u.userId = ?1")
-    List<DonationsHistoryEntity> getDataFromHistory(@Param("user_id") Integer user_id);
+    @Query(value = "select donation_date, donation_result, comments, beneficiary from donations_history " +
+            " where user_id = ?1" , nativeQuery = true)
+    List<Object[]> getDataFromHistory(@Param("user_id") Integer user_id);
+
+    @Query(value = "select u.requestId, u.bloodType, u.location, u.hospital from DonationRequestsEntity u")
+    List<DonationRequestsEntity> getAllRequests();
 }

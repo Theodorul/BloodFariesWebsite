@@ -32,6 +32,7 @@ public class UsersEntity {
         this.hospital = hospital;
     }
 
+    @Column(name = "role_dummy" , length = 20)
     public Integer getRole() {
         return role;
     }
