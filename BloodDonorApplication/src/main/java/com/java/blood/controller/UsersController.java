@@ -2,10 +2,12 @@ package com.java.blood.controller;
 
 import com.java.blood.beans.DoctorBean;
 import com.java.blood.beans.LoginBean;
+import com.java.blood.configuration.Sender;
 import com.java.blood.model.UsersEntity;
 import com.java.blood.repository.UsersRepository;
 import com.java.blood.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -21,6 +23,10 @@ public class UsersController {
 
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private Sender mailService;
+
 
     @RequestMapping(value = "/add/donor", method = RequestMethod.PUT)
     public String addDonor(@RequestBody UsersEntity usersEntity) throws NoSuchAlgorithmException {
@@ -44,5 +50,10 @@ public class UsersController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String getLoginResponse(@RequestBody LoginBean loginBean) throws NoSuchAlgorithmException {
         return usersService.login(loginBean);
+    }
+    @RequestMapping(value = "/sendMail", method = RequestMethod.POST)
+    public String sendMail() {
+        mailService.send();
+        return "Mail successfully sent";
     }
 }
