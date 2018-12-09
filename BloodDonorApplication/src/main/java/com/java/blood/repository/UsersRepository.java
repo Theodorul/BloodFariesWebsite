@@ -17,14 +17,14 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     @Transactional
     @Query(value = "insert into " +
             "users(name, email, location, age, weight_in_kg," +
-            "pulse,tension, diseases,gender,password, blood_type) " +
-            "values (?1,?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9,?10,?11)" , nativeQuery = true)
+            "pulse,tension, diseases,gender,password, blood_type,hospital) " +
+            "values (?1,?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9,?10,?11, ?12)" , nativeQuery = true)
     void addDonator(@Param("name") String name,@Param("email") String email,
                     @Param("location") String location,
                     @Param("age") Integer age, @Param("weight") Integer weight,
                     @Param("pulse") Integer pulse, @Param("tension") Integer tension,
                     @Param("diseases") Integer diseases, @Param("gender") String gender,
-                    @Param("pass") String pass,@Param("bt") String bt
+                    @Param("pass") String pass,@Param("bt") String bt,@Param("hospital") String hospital
                     );
     @Modifying
     @Transactional

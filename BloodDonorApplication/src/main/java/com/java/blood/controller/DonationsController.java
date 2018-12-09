@@ -37,7 +37,7 @@ public class DonationsController {
     public void addRequest(@RequestBody HistoryAdderBean historyAdderBean) {
         donationsService.addDonation(historyAdderBean);
     }
-    @RequestMapping(value = "/getHistory/{email}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/getHistory/{email}", method = RequestMethod.GET)
     public List<DonationsHistoryEntity> getDataByUserFromHistory(@PathVariable("email") String email) {
         return donationsService.getDataFromHistory(usersRepository.getIdFromName(email));
     }

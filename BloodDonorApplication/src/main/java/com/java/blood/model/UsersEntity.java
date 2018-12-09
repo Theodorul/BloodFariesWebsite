@@ -19,14 +19,25 @@ public class UsersEntity {
     private Integer underTreatment;
     private String pass;
     private String blood_type;
-    private Integer role_id;
+    private Integer role;
+    private String hospital;
 
-    public Integer getRole_id() {
-        return role_id;
+    @Basic
+    @Column(name = "hospital" , length = 20)
+    public String getHospital() {
+        return hospital;
     }
 
-    public void setRole_id(Integer role_id) {
-        this.role_id = role_id;
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
     @Id

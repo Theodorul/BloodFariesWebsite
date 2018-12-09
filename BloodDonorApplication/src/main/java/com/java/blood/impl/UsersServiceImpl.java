@@ -29,8 +29,9 @@ public class UsersServiceImpl implements UsersService {
         usersRepository.addDonator(usersEntity.getName(), usersEntity.getEmail(),
                 usersEntity.getLocation(), usersEntity.getAge(), usersEntity.getWeightInKg(),
                 usersEntity.getPulse(),usersEntity.getTension(),usersEntity.getDiseases(),
-                usersEntity.getGender(), hashPassword(usersEntity.getPass()), usersEntity.getBlood_type());
-        usersRepository.addRoleOnDonator(usersRepository.getIdFromName(usersEntity.getEmail()), 1);
+                usersEntity.getGender(), hashPassword(usersEntity.getPass()), usersEntity.getBlood_type(),
+                usersEntity.getHospital());
+        usersRepository.addRoleOnDonator(usersRepository.getIdFromName(usersEntity.getEmail()), usersEntity.getRole());
     }
 
     @Override
