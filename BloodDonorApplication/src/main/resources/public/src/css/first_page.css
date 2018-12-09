@@ -1,6 +1,7 @@
-#choose_login {
+main {
 	justify-content:space-around;
-	padding-top: 50px;
+	padding-top: 50px; 
+	background-image: url("../../src/img/back.jpg");
 	height: 80vh;
 	background-size: unset;
 }
@@ -9,6 +10,7 @@
 	border-radius: 20%;
 	height: 300px;
 	width: 300px;
+	box-shadow: 10px black;
 	font-weight: bold;
 	flex-direction: column;
 	align-items: center;
@@ -33,10 +35,11 @@
 	background-color: #91c0d6;
 	color: #117fb2;
 }
+
 #admin_icon {
-	border: 8px solid #40931f;
-	background-color: #81b76a;
-	color: #40931f;
+	border: 8px solid #117fb2;
+	background-color: #91c0d6;
+	color: #117fb2;
 }
 
 .icon_sign {
@@ -46,12 +49,4 @@
 .icon_text {
 	font-size: 28px;
 	text-align: center;
-}
-
-#choose_title {
-	color: #f02323;
-	font-weight: bold;
-	margin-left: 400px;
-	margin-top: 100px;
-	margin-bottom: -80px;
 }
