@@ -17,7 +17,7 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     @Transactional
     @Query(value = "insert into " +
             "users(name, email, location, age, weight_in_kg," +
-            "pulse,tension, diseases,gender,password) " +
+            "pulse,tension, diseases,gender,password, blood_type) " +
             "values (?1,?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9,?10,?11)" , nativeQuery = true)
     void addDonator(@Param("name") String name,@Param("email") String email,
                     @Param("location") String location,
