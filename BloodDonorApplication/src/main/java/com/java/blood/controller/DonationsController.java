@@ -49,5 +49,11 @@ public class DonationsController {
     public ResponseEntity getFullHistory() {
         return ResponseEntity.status(HttpStatus.OK).body(donationsService.getFullHistoryFromHistory());
     }
+
+    @RequestMapping(value = "/getLastDonation/{email}", method = RequestMethod.GET)
+    public ResponseEntity getFullHistory(@PathVariable("email") String email) {
+        return ResponseEntity.status(HttpStatus.OK).body(donationsService.getLastDateHistory(
+                usersRepository.getIdFromName(email)));
+    }
 }
 

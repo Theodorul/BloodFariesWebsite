@@ -41,6 +41,10 @@ public interface DonationsRepository extends JpaRepository<DonationRequestsEntit
             " where user_id = ?1" , nativeQuery = true)
     List<Object[]> getDataFromHistory(@Param("user_id") Integer user_id);
 
+    @Query(value = "select date (donation_date + interval '1 month' * 6), donation_result, comments, beneficiary from donations_history " +
+            " where user_id = ?1 order by donation_date desc" , nativeQuery = true)
+    List<Object[]> getDataFromHistoryLast(@Param("user_id") Integer user_id);
+
     @Query(value = "select u.requestId, u.bloodType, u.location, u.hospital from DonationRequestsEntity u")
     List<DonationRequestsEntity> getAllRequests();
 

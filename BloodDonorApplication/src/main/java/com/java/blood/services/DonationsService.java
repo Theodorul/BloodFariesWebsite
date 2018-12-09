@@ -18,4 +18,6 @@ public interface DonationsService {
     List<DonationRequestsEntity> getAllRequests();
 
     List<HistoryMaxResponseBean> getFullHistoryFromHistory();
+
+    HistoryResponseBean getLastDateHistory(Integer user_id);
 }

@@ -53,6 +53,20 @@ public class DonationsServiceImpl implements DonationsService {
     }
 
     @Override
+    public HistoryResponseBean getLastDateHistory(Integer user_id) {
+        List<Object[]> data = donationsRepository.getDataFromHistoryLast(user_id);
+        HistoryResponseBean bean = new HistoryResponseBean();
+        for(Object[] obj : data){
+            bean.setBeneficiary((String) obj[3]);
+            bean.setComments((String) obj[2]);
+            bean.setDonation_date((Date) obj[0]);
+            bean.setDonation_result((String) obj[1]);
+            break;
+        }
+        return bean;
+    }
+
+    @Override
     public List<HistoryMaxResponseBean> getFullHistoryFromHistory() {
         List<Object[]> data = donationsRepository.getFullHistory();
         List<HistoryMaxResponseBean> result = new ArrayList<>();
