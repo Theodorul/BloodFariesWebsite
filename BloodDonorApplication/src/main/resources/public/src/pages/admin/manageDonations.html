@@ -14,14 +14,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <header>
+   <header>
 
     <div class="bar1 flex">
       <div id="logo">
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
       <div class="login">
-        Doctors
+        Manage Donations
       </div>
     </div>
     <div class="bar2 flex">
@@ -53,15 +53,17 @@
     </div>
   </header>
   <main>
-    <table class="table">
+     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Location</th>
-          <th scope="col">Status</th>
-           
+          <th scope="col">Donor Name</th>
+          <th scope="col">Donor email</th>
+          <th scope="col">Blood Type</th>
+          <th scope="col">Location</th>           
+          <th scope="col">Donation Date</th>
+          <th scope="col">Donation Results</th>
+          <th scope="col">Comments</th>        
         </tr>
       </thead>
       <tbody id="tableBody">
@@ -69,14 +71,19 @@
    
       </tbody>
     </table>
+    
   </main>
   <footer>
     
   </footer>
-    <script>
-      $(document).ready(function(){
-          $.ajax({
-          url: '/getAllUsersByRole/2',         
+
+  <script>
+    
+      $(document).ready(function(){          
+         
+              
+        $.ajax({
+          url: '/getWholeHistory',         
           type: 'get',          
           timeout: 5000})
         .done(function(result){
@@ -84,10 +91,13 @@
           $.each(result, function(k, entry){                       
             $('#tableBody').append("<tr>" + "<br/>" + 
               "<td>" + counter + "</td>" + "<br/>" +
-              "<td>" + entry[0] + "</td>" + "<br/>" + 
-              "<td>" + entry[1] + "</td>" + "<br/>" +              
-              "<td>" + entry[3] + "</td>" + "<br/>" +
-              "<td>" + entry[2] + "</td>" + "<br/>" +
+              "<td>" + entry['name'] + "</td>" + "<br/>" + 
+              "<td>" + entry['email'] + "</td>" + "<br/>" +
+              "<td>" + entry['blood_type'] + "</td>" + "<br/>" +
+              "<td>" + entry['location'] + "</td>" + "<br/>" +
+              "<td>" + entry['donations_date'] + "</td>" + "<br/>" +
+              "<td>" + entry['donation_results'] + "</td>" + "<br/>" +
+              "<td>" + entry['comments'] + "</td>" + "<br/>" +
               "</tr>");
             counter++;
 
@@ -96,12 +106,13 @@
         .fail(function(result){          
             console.log("fail");       
         });
+        
+    });
 
 
-      });
-    </script>
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+  </script>
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blood Faries</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/all.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/css/first_page.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+
+    <div class="bar1 flex">
+      <div id="logo">
+        <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
+      </div>
+      <div class="login">
+        Donors
+      </div>
+    </div>
+    <div class="bar2 flex">
+      <a id="homePage" href="http://localhost:8080/src/pages/admin/admin.html">
+        <h3 class="menu-cell">
+          Home Page
+        </h3>
+      </a>
+      <a href="http://localhost:8080/src/pages/admin/manageUsers.html">
+        <h3 class="menu-cell">
+          Manage Users
+        </h3>
+      </a>
+      <a href="http://localhost:8080/src/pages/admin/manageRequests.html">
+        <h3 class="menu-cell">
+          Manage Requests
+        </h3>
+      </a>
+      <a href="http://localhost:8080/src/pages/admin/manageDonations.html">
+        <h3 class="menu-cell">
+         Manage Donations
+        </h3>
+      </a>
+      <a href="http://localhost:8080/src/pages/admin/chat.html">
+        <h3 class="menu-cell">
+         Chat
+        </h3>
+      </a>
+    </div>
+  </header>
+  <main>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Location</th>
+          <th scope="col">Blood Type</th>
+          <th scope="col">Age</th>
+          <th scope="col">Weight</th>         
+          <th scope="col">Status</th>
+           
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+    
+   
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    
+  </footer>
+    <script>
+      $(document).ready(function(){
+          $.ajax({
+          url: '/getAllUsersByRole/1',         
+          type: 'get',          
+          timeout: 5000})
+        .done(function(result){
+          var counter = 1;                   
+          $.each(result, function(k, entry){                       
+            $('#tableBody').append("<tr>" + "<br/>" + 
+              "<td>" + counter + "</td>" + "<br/>" +
+              "<td>" + entry[0] + "</td>" + "<br/>" + 
+              "<td>" + entry[1] + "</td>" + "<br/>" +                       
+              "<td>" + entry[3] + "</td>" + "<br/>" +
+              "<td>" + entry[11] + "</td>" + "<br/>" +
+              "<td>" + entry[4] + "</td>" + "<br/>" +
+              "<td>" + entry[5] + "</td>" + "<br/>" +
+              "<td>" + entry[2] + "</td>" + "<br/>" +
+              "</tr>");
+            counter++;
+
+          });
+      })
+        .fail(function(result){          
+            console.log("fail");       
+        });
+
+
+      });
+    </script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
