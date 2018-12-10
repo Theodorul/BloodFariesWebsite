@@ -31,11 +31,16 @@ public class UsersController {
 
     @RequestMapping(value = "/add/donor", method = RequestMethod.PUT)
     public String addDonor(@RequestBody UsersEntity usersEntity) throws NoSuchAlgorithmException {
-        if(usersRepository.getAllEmails().contains(usersEntity.getEmail())){
-            return "Email is already taken";
+        if(usersService.check(usersEntity.getEmail()).equals("Email in database")){
+            return "This email is already taken";
         }
         else{
-            return usersService.addDonor(usersEntity);
+            if(usersRepository.getAllEmails().contains(usersEntity.getEmail())){
+                return "Email is already taken";
+            }
+            else{
+                return usersService.addDonor(usersEntity);
+            }
         }
     }
 
@@ -65,5 +70,10 @@ public class UsersController {
     @RequestMapping(value = "/getAllUsersByRole/{role}", method = RequestMethod.GET)
     public List<UsersEntity> getLoginResponse(@PathVariable("role") Integer role) {
         return usersService.getAllUsersByRole(role);
+    }
+
+    @RequestMapping(value = "/check/{email}", method = RequestMethod.GET)
+    public String CheckForExistency(@PathVariable("email") String email) {
+        return usersService.check(email);
     }
 }

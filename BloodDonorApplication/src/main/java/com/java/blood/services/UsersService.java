@@ -20,4 +20,6 @@ public interface UsersService {
     String hashPassword(String password) throws NoSuchAlgorithmException;
 
     List<UsersEntity> getAllUsersByRole(Integer role);
+
+    String check(String email);
 }

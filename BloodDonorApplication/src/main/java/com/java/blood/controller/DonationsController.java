@@ -34,6 +34,13 @@ public class DonationsController {
     public String addRequest(@RequestBody DonationRequestsEntity donationRequestsEntity) {
         return donationsService.addRequest(donationRequestsEntity);
     }
+    @RequestMapping(value = "/delete/request", method = RequestMethod.DELETE)
+    public String deleteRequest(@RequestBody DonationRequestsEntity donationRequestsEntity) {
+        donationsRepository.deleteRequest(donationRequestsEntity.getRh(),
+                donationRequestsEntity.getBloodType(), donationRequestsEntity.getReasonToRequest(),
+                donationRequestsEntity.getLocation(),donationRequestsEntity.getHospital());
+        return "Request deleted successfully";
+    }
     @RequestMapping(value = "/add/donation", method = RequestMethod.PUT)
     public String addRequest(@RequestBody HistoryAdderBean historyAdderBean) {
         return donationsService.addDonation(historyAdderBean);

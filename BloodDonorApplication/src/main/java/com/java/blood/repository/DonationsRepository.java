@@ -26,6 +26,16 @@ public interface DonationsRepository extends JpaRepository<DonationRequestsEntit
                     @Param("location") String location, @Param("hospital") String hospital
     );
 
+    @Modifying
+    @Transactional
+    @Query(value = "delete from donation_requests where " +
+            "rh = ?1 and blood_type = ?2 and reason_to_request = ?3 and location = ?4 and hospital = ?5" , nativeQuery = true)
+    void deleteRequest(@Param("rh") String rh, @Param("blood_type") String blood_type,
+                    @Param("reason_to_request") String reason_to_request,
+                    @Param("location") String location, @Param("hospital") String hospital
+    );
+
+
 
     @Modifying
     @Transactional

@@ -76,7 +76,7 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     @Query(value = "delete from role_mapping where user_id not in (select user_id from users)", nativeQuery = true)
     void deleteRoleFromUsers();
 
-    @Query("select u.email from UsersEntity u")
+    @Query("select distinct u.email from UsersEntity u")
     List<String> getAllEmails();
 
     @Query("select u.userId from UsersEntity u")

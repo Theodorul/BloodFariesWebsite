@@ -76,6 +76,16 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public String check(String email){
+        if(usersRepository.getAllEmails().contains(email)){
+            return "Email in database";
+        }
+        else{
+            return "Email not in database";
+        }
+    }
+
+    @Override
     public String hashPassword(String password) throws NoSuchAlgorithmException {
         String plaintext = password;
         MessageDigest m = MessageDigest.getInstance("MD5");
