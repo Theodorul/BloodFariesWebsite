@@ -25,24 +25,29 @@
       </div>
     </div>
     <div class="bar2 flex">
-       <a id="homePage" href="http://localhost:8080/src/pages/doctor/doctor.html">
+      <a id="homePage" href="http://localhost:8080/src/pages/doctor/doctor.html">
         <h3 class="menu-cell">
           Home Page
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/donationRequest.html">
+      <a id="donationRequest" href="http://localhost:8080/src/pages/doctor/donationRequest.html">
         <h3 class="menu-cell">
           Donation Request
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/requestsStatus.html">
+      <a id="requestsStatus" href="http://localhost:8080/src/pages/doctor/requestsStatus.html">
         <h3 class="menu-cell">
           Requests Status
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/donationsHistory.html">
+      <a id="donationsHistory" href="http://localhost:8080/src/pages/doctor/donationsHistory.html">
         <h3 class="menu-cell">
          Donations History
+        </h3>
+      </a>
+      <a id="chat" href="http://localhost:8080/src/pages/doctor/chat.html">
+        <h3 class="menu-cell">
+         Chat
         </h3>
       </a>
     </div>
@@ -73,9 +78,22 @@
   </footer>
 
   <script>
-    
+      
       $(document).ready(function(){          
-              
+        var url = window.location.search.substr(1);
+      var res = url.split("=");
+      var user = res[1];
+      var homePage = document.getElementById('homePage');
+      var donationRequest = document.getElementById('donationRequest');
+      var requestsStatus = document.getElementById('requestsStatus');
+      var donationsHistory = document.getElementById('donationsHistory');
+      var chat = document.getElementById('chat');
+      donationRequest.href = "http://localhost:8080/src/pages/doctor/donationRequest.html?user=" + user;
+      homePage.href = "http://localhost:8080/src/pages/doctor/doctor.html?user=" + user;
+      requestsStatus.href = "http://localhost:8080/src/pages/doctor/requestsStatus.html?user=" + user;
+      donationsHistory.href = "http://localhost:8080/src/pages/doctor/donationsHistory.html?user=" + user;
+      chat.href = "http://localhost:8080/src/pages/doctor/chat.html?user=" + user;
+
         $.ajax({
           url: '/getWholeHistory',         
           type: 'get',          

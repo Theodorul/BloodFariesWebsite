@@ -21,33 +21,38 @@
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
       <div class="login">
-        Personnel Page
+        Add Donation
       </div>
     </div>
-    <div class="bar2 flex">
-      <a id="homePage" href="#">
+      <div class="bar2 flex">
+      <a id="homePage" href="http://localhost:8080/src/pages/personnel/personnel.html">
         <h3 class="menu-cell">
           Home Page
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/personnel/addDonation.html">
+      <a id="addDonation" href="http://localhost:8080/src/pages/personnel/addDonation.html">
         <h3 class="menu-cell">
           Add Donation
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/personnel/pendingRequests.html">
+      <a id="pendingRequests" href="http://localhost:8080/src/pages/personnel/pendingRequests.html">
         <h3 class="menu-cell">
           Pending Requests
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/personnel/donationsHistory.html">
+      <a id="donationsHistory" href="http://localhost:8080/src/pages/personnel/donationsHistory.html">
         <h3 class="menu-cell">
          Donations History
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/personnel/notifyDonors.html">
+      <a id="notifyDonors" href="http://localhost:8080/src/pages/personnel/notifyDonors.html">
         <h3 class="menu-cell">
          Notify Donors
+        </h3>
+      </a>
+      <a id="chat" href="http://localhost:8080/src/pages/personnel/chat.html">
+        <h3 class="menu-cell">
+         Chat
         </h3>
       </a>
     </div>
@@ -102,7 +107,26 @@
   </footer>
 
   <script>
-    
+      $(document).ready(function(){       
+        var url = window.location.search.substr(1);
+        var res = url.split("=");
+        var user = res[1];
+        var homePage = document.getElementById('homePage');
+        var addDonation = document.getElementById('addDonation');
+        var pendingRequests = document.getElementById('pendingRequests');
+        var donationsHistory = document.getElementById('donationsHistory');
+        var notifyDonors = document.getElementById('notifyDonors');
+        var chat = document.getElementById('chat');
+        addDonation.href = "http://localhost:8080/src/pages/personnel/addDonation.html?user=" + user;
+        homePage.href = "http://localhost:8080/src/pages/personnel/personnel.html?user=" + user;
+        pendingRequests.href = "http://localhost:8080/src/pages/personnel/pendingRequests.html?user=" + user;
+        donationsHistory.href = "http://localhost:8080/src/pages/personnel/donationsHistory.html?user=" + user;
+        notifyDonors.href = "http://localhost:8080/src/pages/personnel/notifyDonors.html?user=" + user;
+        chat.href = "http://localhost:8080/src/pages/personnel/chat.html?user=" + user;
+      
+
+      });
+
       $('#addDonation').on('submit', function(event){
         var inputs = $('#addDonation :input'); 
         console.log(inputs);
