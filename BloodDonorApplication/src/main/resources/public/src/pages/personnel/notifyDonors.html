@@ -14,90 +14,90 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <header>
+   <header>
 
     <div class="bar1 flex">
       <div id="logo">
         <a href="http://localhost:8080/index.html"><img src="http://localhost:8080/src/img/logo.png" width="300" height="100"></a>
       </div>
       <div class="login">
-        Donation Request
+        Notify Donors
       </div>
     </div>
     <div class="bar2 flex">
-       <a id="homePage" href="http://localhost:8080/src/pages/doctor/doctor.html">
+      <a id="homePage" href="#">
         <h3 class="menu-cell">
           Home Page
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/donationRequest.html">
+      <a href="http://localhost:8080/src/pages/personnel/addDonation.html">
         <h3 class="menu-cell">
-          Donation Request
+          Add Donation
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/requestsStatus.html">
+      <a href="http://localhost:8080/src/pages/personnel/pendingRequests.html">
         <h3 class="menu-cell">
-          Requests Status
+          Pending Requests
         </h3>
       </a>
-      <a href="http://localhost:8080/src/pages/doctor/donationsHistory.html">
+      <a href="http://localhost:8080/src/pages/personnel/donationsHistory.html">
         <h3 class="menu-cell">
          Donations History
         </h3>
       </a>
+      <a href="http://localhost:8080/src/pages/personnel/notifyDonors.html">
+        <h3 class="menu-cell">
+         Notify Donors
+        </h3>
+      </a>
     </div>
   </header>
-  <main class="flex">
-    <form id="donationRequest">
-          <div class="form-group">
-              <input type="text" class="form-control" id="bloodType" placeholder="Blood Type">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="location" placeholder="Location">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="hospital" placeholder="Hospital">
-          </div>
-
-          </div>
-          
-
-        <button type="submit" class="btn btn-primary">Make Request</button>
-      </form>
+  <main>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Blood Type</th>
+          <th scope="col">Location</th> 
+          <th scope="col">Hospital</th>        
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+    
+   
+      </tbody>
+    </table>
     
   </main>
   <footer>
     
   </footer>
 
-  <script>
+ <script>
     
-      $('#donationRequest').on('submit', function(event){
-        var inputs = $('#donationRequest :input'); 
-
-        var data = {};
-        data['bloodType'] = ($(inputs[0]).val());
-        data['location'] = ($(inputs[1]).val());
-        data['hospital'] = ($(inputs[2]).val());
-        data['rh'] = "";
-        
-      
-        
+      $( document ).ready(function(){          
+              
         $.ajax({
-          url: '/add/request',
-          contentType: "application/json",
-          type: 'put',
-          data: JSON.stringify(data),
-          dataType: 'json',
+          url: '/getAllRequests',         
+          type: 'get',          
           timeout: 5000})
         .done(function(result){
           
+          $.each(result, function(k, entry){            
+            $('#tableBody').append("<tr>" + "<br/>" + 
+              "<td>" + entry[0] + "</td>" + "<br/>" + 
+              "<td>" + entry[1] + "</td>" + "<br/>" +
+              "<td>" + entry[2] + "</td>" + "<br/>" +
+              "<td>" + entry[3] + "</td>" + "<br/>" +
+              "</tr>");
+
+
+          });
       })
-        .fail(function(result){
-          
-                   
+        .fail(function(result){          
+            console.log("fail");       
         });
-        event.preventDefault();
+        
     });
 
 
