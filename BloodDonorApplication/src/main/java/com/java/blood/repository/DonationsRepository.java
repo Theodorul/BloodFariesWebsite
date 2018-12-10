@@ -47,7 +47,7 @@ public interface DonationsRepository extends JpaRepository<DonationRequestsEntit
 
     @Query(value = "select distinct date (a.donation_date + interval '1 month' * 6), " +
             " a.donation_result, a.comments, a.beneficiary, b.name, b.email," +
-            " a.blood_type, a.donation_date from donations_history a " +
+            " b.blood_type, a.donation_date from donations_history a " +
             " inner join users b on a.user_id = b.user_id " +
             " order by a.donation_date desc" , nativeQuery = true)
     List<Object[]> getDataFromHistoryLast2();
