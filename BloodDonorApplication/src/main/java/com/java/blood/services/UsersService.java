@@ -5,6 +5,7 @@ import com.java.blood.beans.LoginBean;
 import com.java.blood.model.UsersEntity;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public interface UsersService {
 
@@ -17,4 +18,6 @@ public interface UsersService {
     String login(LoginBean loginBean) throws NoSuchAlgorithmException;
 
     String hashPassword(String password) throws NoSuchAlgorithmException;
+
+    List<UsersEntity> getAllUsersByRole(Integer role);
 }

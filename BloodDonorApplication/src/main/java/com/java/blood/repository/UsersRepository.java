@@ -50,6 +50,15 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
     @Query("select u.pass from UsersEntity u where u.email = ?1")
     String getPassForUser(@Param("name") String name);
 
+    @Query("select u.name, u.email, rr.roleName, u.location, u.age, u.weightInKg, " +
+            "u.pulse, u.tension, u.diseases, u.gender, u.underTreatment," +
+            "u.blood_type, u.hospital from UsersEntity u " +
+            "inner join RoleMappingEntity r on u.userId = r.userId " +
+            "inner join RoleEntity rr on rr.roleId = r.roleId " +
+            "where rr.roleId = ?1")
+    List<UsersEntity> getAllUsersByRole(@Param("role") Integer role);
+
+
 
     @Modifying
     @Transactional

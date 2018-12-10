@@ -26,12 +26,17 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public String addDonor(UsersEntity usersEntity) throws NoSuchAlgorithmException {
-        usersRepository.addDonator(usersEntity.getName(), usersEntity.getEmail(),
-                usersEntity.getLocation(), usersEntity.getAge(), usersEntity.getWeightInKg(),
-                usersEntity.getPulse(),usersEntity.getTension(),usersEntity.getDiseases(),
-                usersEntity.getGender(), hashPassword(usersEntity.getPass()), usersEntity.getBlood_type(),
-                usersEntity.getHospital());
-        usersRepository.addRoleOnDonator(usersRepository.getIdFromName(usersEntity.getEmail()), usersEntity.getRole());
+        if(usersRepository.getAllEmails().contains(usersEntity.getEmail())){
+           return "Email already taken";
+        }
+        else{
+            usersRepository.addDonator(usersEntity.getName(), usersEntity.getEmail(),
+                    usersEntity.getLocation(), usersEntity.getAge(), usersEntity.getWeightInKg(),
+                    usersEntity.getPulse(),usersEntity.getTension(),usersEntity.getDiseases(),
+                    usersEntity.getGender(), hashPassword(usersEntity.getPass()), usersEntity.getBlood_type(),
+                    usersEntity.getHospital());
+            usersRepository.addRoleOnDonator(usersRepository.getIdFromName(usersEntity.getEmail()), usersEntity.getRole());
+        }
         return "User added successfully";
     }
 
@@ -80,5 +85,10 @@ public class UsersServiceImpl implements UsersService {
         BigInteger bigInt = new BigInteger(1,digest);
         String hashtext = bigInt.toString(16);
         return hashtext;
+    }
+
+    @Override
+    public List<UsersEntity> getAllUsersByRole(Integer role) {
+        return usersRepository.getAllUsersByRole(role);
     }
 }

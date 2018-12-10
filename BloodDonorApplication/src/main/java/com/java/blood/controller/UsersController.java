@@ -2,6 +2,7 @@ package com.java.blood.controller;
 
 import com.java.blood.beans.DoctorBean;
 import com.java.blood.beans.LoginBean;
+import com.java.blood.beans.MailBean;
 import com.java.blood.configuration.Sender;
 import com.java.blood.model.UsersEntity;
 import com.java.blood.repository.UsersRepository;
@@ -30,7 +31,12 @@ public class UsersController {
 
     @RequestMapping(value = "/add/donor", method = RequestMethod.PUT)
     public String addDonor(@RequestBody UsersEntity usersEntity) throws NoSuchAlgorithmException {
-        return usersService.addDonor(usersEntity);
+        if(usersRepository.getAllEmails().contains(usersEntity.getEmail())){
+            return "Email is already taken";
+        }
+        else{
+            return usersService.addDonor(usersEntity);
+        }
     }
 
     @RequestMapping(value = "/add/doctor", method = RequestMethod.PUT)
@@ -51,9 +57,13 @@ public class UsersController {
     public String getLoginResponse(@RequestBody LoginBean loginBean) throws NoSuchAlgorithmException {
         return usersService.login(loginBean);
     }
-    @RequestMapping(value = "/sendMail/{to}", method = RequestMethod.POST)
-    public String sendMail(@PathVariable("to") String to) {
-        mailService.send(to);
+    @RequestMapping(value = "/sendMail", method = RequestMethod.POST)
+    public String sendMail(@RequestBody MailBean mailBean) {
+        mailService.send(mailBean.getTo(),mailBean.getSubject(),mailBean.getText());
         return "Mail successfully sent";
+    }
+    @RequestMapping(value = "/getAllUsersByRole/{role}", method = RequestMethod.GET)
+    public List<UsersEntity> getLoginResponse(@PathVariable("role") Integer role) {
+        return usersService.getAllUsersByRole(role);
     }
 }
