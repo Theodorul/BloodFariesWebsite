@@ -3,6 +3,7 @@ package com.java.blood.impl;
 import com.java.blood.beans.HistoryAdderBean;
 import com.java.blood.beans.HistoryMaxResponseBean;
 import com.java.blood.beans.HistoryResponseBean;
+import com.java.blood.beans.HistoryResponseBeanLast;
 import com.java.blood.model.DonationRequestsEntity;
 import com.java.blood.repository.DonationsRepository;
 import com.java.blood.repository.UsersRepository;
@@ -11,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Service("DonationsService")
@@ -83,6 +87,26 @@ public class DonationsServiceImpl implements DonationsService {
         }
         return result;
     }
+
+    @Override
+    public List<HistoryResponseBeanLast> getFullHistoryFromHistoryLast() {
+        List<Object[]> data = donationsRepository.getDataFromHistoryLast2();
+        List<HistoryResponseBeanLast> result = new ArrayList<>();
+        for(Object[] obj : data){
+            HistoryResponseBeanLast bean = new HistoryResponseBeanLast();
+            bean.setBeneficiary((String) obj[3]);
+            bean.setComments((String) obj[2]);
+            bean.setDonation_date((Date) obj[0]);
+            bean.setDonation_result((String) obj[1]);
+            bean.setName((String) obj[4]);
+            bean.setEmail((String) obj[5]);
+            if(bean.getDonation_date().toLocalDate().isBefore(LocalDateTime.now().toLocalDate())){
+                result.add(bean);
+            }
+        }
+        return result;
+    }
+
 
     @Override
     public List<DonationRequestsEntity> getAllRequests() {

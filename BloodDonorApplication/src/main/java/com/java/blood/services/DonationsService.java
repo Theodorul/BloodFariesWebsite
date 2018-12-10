@@ -3,6 +3,7 @@ package com.java.blood.services;
 import com.java.blood.beans.HistoryAdderBean;
 import com.java.blood.beans.HistoryMaxResponseBean;
 import com.java.blood.beans.HistoryResponseBean;
+import com.java.blood.beans.HistoryResponseBeanLast;
 import com.java.blood.model.DonationRequestsEntity;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface DonationsService {
     List<HistoryMaxResponseBean> getFullHistoryFromHistory();
 
     HistoryResponseBean getLastDateHistory(Integer user_id);
+
+    List<HistoryResponseBeanLast> getFullHistoryFromHistoryLast();
 }

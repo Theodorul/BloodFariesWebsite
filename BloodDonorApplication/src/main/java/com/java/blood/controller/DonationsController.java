@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
+
 
 @RestController
 public class DonationsController {
@@ -54,6 +56,10 @@ public class DonationsController {
     public ResponseEntity getFullHistory(@PathVariable("email") String email) {
         return ResponseEntity.status(HttpStatus.OK).body(donationsService.getLastDateHistory(
                 usersRepository.getIdFromName(email)));
+    }
+    @RequestMapping(value = "/getLastDonationFull", method = RequestMethod.GET)
+    public ResponseEntity getFullHistory2() {
+        return ResponseEntity.status(HttpStatus.OK).body(new HashSet<>(donationsService.getFullHistoryFromHistoryLast()));
     }
 }
 
