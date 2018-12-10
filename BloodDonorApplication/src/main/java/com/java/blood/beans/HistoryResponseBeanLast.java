@@ -17,6 +17,16 @@ public class HistoryResponseBeanLast {
 
     private String email;
 
+    private String blood_type;
+
+    public String getBlood_type() {
+        return blood_type;
+    }
+
+    public void setBlood_type(String blood_type) {
+        this.blood_type = blood_type;
+    }
+
     public String getEmail() {
         return email;
     }

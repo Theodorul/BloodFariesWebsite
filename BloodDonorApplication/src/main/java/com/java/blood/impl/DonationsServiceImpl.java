@@ -100,6 +100,7 @@ public class DonationsServiceImpl implements DonationsService {
             bean.setDonation_result((String) obj[1]);
             bean.setName((String) obj[4]);
             bean.setEmail((String) obj[5]);
+            bean.setBlood_type((String) obj[6]);
             if(bean.getDonation_date().toLocalDate().isBefore(LocalDateTime.now().toLocalDate())){
                 result.add(bean);
             }
