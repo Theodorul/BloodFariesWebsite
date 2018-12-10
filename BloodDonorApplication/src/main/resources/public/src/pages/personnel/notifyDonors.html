@@ -53,13 +53,14 @@
     </div>
   </header>
   <main>
+    Eligible Users
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Blood Type</th>
-          <th scope="col">Location</th> 
-          <th scope="col">Hospital</th>        
+          <th scope="col">Donor Name</th>
+          <th scope="col">Email</th> 
+          <th scope="col">Blood Type</th>                  
         </tr>
       </thead>
       <tbody id="tableBody">
@@ -67,6 +68,8 @@
    
       </tbody>
     </table>
+
+     <button type="submit" id="sendNotifications" class="btn btn-primary">Notify All</button>
     
   </main>
   <footer>
@@ -74,31 +77,51 @@
   </footer>
 
  <script>
-    
-      $( document ).ready(function(){          
+      var emails = [];
+      $(document).ready(function(){          
               
         $.ajax({
-          url: '/getAllRequests',         
+          url: '/getLastDonationFull',         
           type: 'get',          
           timeout: 5000})
         .done(function(result){
-          
+          var counter = 1; 
           $.each(result, function(k, entry){            
+            emails[counter - 1] = entry['email'];          
             $('#tableBody').append("<tr>" + "<br/>" + 
-              "<td>" + entry[0] + "</td>" + "<br/>" + 
-              "<td>" + entry[1] + "</td>" + "<br/>" +
-              "<td>" + entry[2] + "</td>" + "<br/>" +
-              "<td>" + entry[3] + "</td>" + "<br/>" +
+               "<td>" + counter + "</td>" + "<br/>" + 
+              "<td>" + entry['name'] + "</td>" + "<br/>" + 
+              "<td>" + entry['email'] + "</td>" + "<br/>" +
+              "<td>" + entry['blood_type'] + "</td>" + "<br/>" +              
               "</tr>");
-
-
+            counter++;
           });
+
       })
         .fail(function(result){          
             console.log("fail");       
         });
         
     });
+
+
+      $("#sendNotifications").click(function(){
+        emails.forEach(function(email) {
+          $.ajax({
+            url: '/sendMail/' + email,         
+            type: 'post',          
+            timeout: 5000})
+          .done(function(result){
+            console.log("success");
+          })
+          .fail(function(result){          
+              console.log("fail");       
+          });
+
+        });    
+
+
+      });
 
 
   
